@@ -19,7 +19,7 @@ public class HardMode extends javax.swing.JFrame {
     int[] cards = new int[8];
     int clickCounter = 0;
     int score = 0;
-    int hints = 0;
+    int hits = 0;
     int fail = 0;
     String[] comparation = new String[2];
     int[] numCards = new int[2];
@@ -124,8 +124,18 @@ public class HardMode extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Es correcto");
             Labels.get(numCards[0]).setVisible(false);
             Labels.get(numCards[1]).setVisible(false);
+            hits++;
+            numHits.setText("" + hits);
+            score = score + 100;
+            gameScore.setText("" + score);
         } else {
             flipCards();
+            fail++;
+            numFails.setText("" + fail);
+            if (score >= 50) {
+                score = score - 50;
+            }
+            gameScore.setText("" + score);
         }
         clickCounter = 0;
     }
@@ -153,6 +163,9 @@ public class HardMode extends javax.swing.JFrame {
         card3 = new javax.swing.JLabel();
         play = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
+        gameScore = new javax.swing.JLabel();
+        numHits = new javax.swing.JLabel();
+        numFails = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -367,18 +380,38 @@ public class HardMode extends javax.swing.JFrame {
             }
         });
         getContentPane().add(backButton);
-        backButton.setBounds(6, 476, 72, 23);
+        backButton.setBounds(480, 460, 72, 23);
+
+        gameScore.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        gameScore.setText("           ");
+        gameScore.setBorder(javax.swing.BorderFactory.createTitledBorder("PUNTAJE"));
+        getContentPane().add(gameScore);
+        gameScore.setBounds(440, 10, 100, 60);
+
+        numHits.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        numHits.setText("    ");
+        numHits.setBorder(javax.swing.BorderFactory.createTitledBorder("ACIERTOS"));
+        getContentPane().add(numHits);
+        numHits.setBounds(440, 130, 100, 90);
+
+        numFails.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        numFails.setText("    ");
+        numFails.setBorder(javax.swing.BorderFactory.createTitledBorder("FALLOS"));
+        getContentPane().add(numFails);
+        numFails.setBounds(440, 250, 100, 90);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void playActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playActionPerformed
+        backButton.setEnabled(false);
         if (hardRoute[0][0] == null) {
             loadimageslabels();
             play.setText("Jugar");
         } else {
             flipCards();
             play.setText("Jugando");
+            play.setEnabled(false);
         }
     }//GEN-LAST:event_playActionPerformed
 
@@ -505,7 +538,10 @@ public class HardMode extends javax.swing.JFrame {
     private javax.swing.JLabel card7;
     private javax.swing.JLabel card8;
     private javax.swing.JLabel card9;
+    private javax.swing.JLabel gameScore;
     private javax.swing.JPanel jPanelHard;
+    private javax.swing.JLabel numFails;
+    private javax.swing.JLabel numHits;
     private javax.swing.JButton play;
     // End of variables declaration//GEN-END:variables
 }
