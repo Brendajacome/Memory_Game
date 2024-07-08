@@ -4,6 +4,8 @@
  */
 package memory_games;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
@@ -17,6 +19,8 @@ public class InterfaceMain extends javax.swing.JFrame {
         initComponents();
         setSize(800,600);
         this.setLocationRelativeTo(null);
+        easyButton.setVisible(false);
+        hardButton.setVisible(false);
     }
 
     /**
@@ -48,7 +52,18 @@ public class InterfaceMain extends javax.swing.JFrame {
             }
         });
 
+        playerName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playerNameActionPerformed(evt);
+            }
+        });
+
         submitButton.setText("Submit");
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButtonActionPerformed(evt);
+            }
+        });
 
         hardButton.setText("HARD");
         hardButton.addActionListener(new java.awt.event.ActionListener() {
@@ -112,6 +127,21 @@ public class InterfaceMain extends javax.swing.JFrame {
         Main.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_hardButtonActionPerformed
+
+    private void playerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playerNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_playerNameActionPerformed
+
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        if (!playerName.getText().trim().isEmpty()) {
+            easyButton.setVisible(true);
+            hardButton.setVisible(true);
+        } else {
+            easyButton.setVisible(false);
+            hardButton.setVisible(false);
+            JOptionPane.showMessageDialog(this, "Por favor, ingresa un nombre.");
+        }
+    }//GEN-LAST:event_submitButtonActionPerformed
 
     /**
      * @param args the command line arguments
