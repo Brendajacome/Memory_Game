@@ -22,7 +22,8 @@ public class InterfaceMain extends javax.swing.JFrame {
         easyButton.setVisible(false);
         hardButton.setVisible(false);
     }
-
+    public static String text ="";
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -134,6 +135,7 @@ public class InterfaceMain extends javax.swing.JFrame {
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         if (!playerName.getText().trim().isEmpty()) {
+            text=playerName.getText();
             easyButton.setVisible(true);
             hardButton.setVisible(true);
         } else {

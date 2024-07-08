@@ -31,7 +31,8 @@ public class HardMode extends javax.swing.JFrame {
         loadingLabels();
         addcard();
         jPanelHard.setVisible(true);
-
+        InterfaceMain playerName = new InterfaceMain();
+        players.setText(playerName.text);
     }
 
     void loadingLabels() {
@@ -166,6 +167,7 @@ public class HardMode extends javax.swing.JFrame {
         gameScore = new javax.swing.JLabel();
         numHits = new javax.swing.JLabel();
         numFails = new javax.swing.JLabel();
+        players = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -400,6 +402,11 @@ public class HardMode extends javax.swing.JFrame {
         getContentPane().add(numFails);
         numFails.setBounds(440, 250, 100, 90);
 
+        players.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        players.setBorder(javax.swing.BorderFactory.createTitledBorder("Nombre del Jugador"));
+        getContentPane().add(players);
+        players.setBounds(180, 10, 170, 50);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -543,5 +550,6 @@ public class HardMode extends javax.swing.JFrame {
     private javax.swing.JLabel numFails;
     private javax.swing.JLabel numHits;
     private javax.swing.JButton play;
+    private javax.swing.JLabel players;
     // End of variables declaration//GEN-END:variables
 }
