@@ -112,7 +112,7 @@ public class InterfaceMain extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(130, 30, 500, 445);
+        jPanel1.setBounds(30, 26, 500, 445);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -124,7 +124,9 @@ public class InterfaceMain extends javax.swing.JFrame {
     }//GEN-LAST:event_easyButtonActionPerformed
 
     private void hardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hardButtonActionPerformed
-      
+       HardMode Main= new HardMode();
+        Main.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_hardButtonActionPerformed
 
     private void playerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playerNameActionPerformed
