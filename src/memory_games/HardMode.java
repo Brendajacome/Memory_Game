@@ -358,7 +358,7 @@ public class HardMode extends javax.swing.JFrame {
             }
         });
         getContentPane().add(play);
-        play.setBounds(6, 37, 76, 23);
+        play.setBounds(6, 37, 75, 23);
 
         backButton.setText("Volver");
         backButton.addActionListener(new java.awt.event.ActionListener() {

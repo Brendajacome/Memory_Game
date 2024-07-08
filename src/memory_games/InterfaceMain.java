@@ -111,7 +111,7 @@ public class InterfaceMain extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(30, 26, 500, 445);
+        jPanel1.setBounds(130, 30, 500, 445);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

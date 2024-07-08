@@ -164,6 +164,7 @@ public class EasyMode extends javax.swing.JFrame {
         jlfailures = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
         Score = new javax.swing.JLabel();
+        nameuser = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -177,7 +178,7 @@ public class EasyMode extends javax.swing.JFrame {
             }
         });
         jPanel1.add(StartButton);
-        StartButton.setBounds(30, 70, 80, 23);
+        StartButton.setBounds(30, 120, 80, 23);
 
         jPanel1easy.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1easy.setLayout(null);
@@ -291,19 +292,19 @@ public class EasyMode extends javax.swing.JFrame {
         card11.setBounds(129, 310, 80, 80);
 
         jPanel1.add(jPanel1easy);
-        jPanel1easy.setBounds(29, 115, 350, 430);
+        jPanel1easy.setBounds(30, 180, 350, 430);
 
         jlhits.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jlhits.setText("    ");
         jlhits.setBorder(javax.swing.BorderFactory.createTitledBorder("ACIERTOS"));
         jPanel1.add(jlhits);
-        jlhits.setBounds(430, 236, 100, 90);
+        jlhits.setBounds(430, 350, 100, 90);
 
         jlfailures.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jlfailures.setText("    ");
         jlfailures.setBorder(javax.swing.BorderFactory.createTitledBorder("FALLOS"));
         jPanel1.add(jlfailures);
-        jlfailures.setBounds(430, 361, 100, 90);
+        jlfailures.setBounds(430, 470, 100, 90);
 
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -312,13 +313,15 @@ public class EasyMode extends javax.swing.JFrame {
             }
         });
         jPanel1.add(backButton);
-        backButton.setBounds(490, 540, 72, 23);
+        backButton.setBounds(440, 600, 72, 23);
 
         Score.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         Score.setText("           ");
         Score.setBorder(javax.swing.BorderFactory.createTitledBorder("PUNTAJE"));
         jPanel1.add(Score);
-        Score.setBounds(430, 110, 100, 60);
+        Score.setBounds(430, 190, 100, 60);
+        jPanel1.add(nameuser);
+        nameuser.setBounds(30, 50, 200, 50);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(20, 30, 620, 640);
@@ -476,6 +479,7 @@ public class EasyMode extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1easy;
     private javax.swing.JLabel jlfailures;
     private javax.swing.JLabel jlhits;
+    private javax.swing.JLabel nameuser;
     // End of variables declaration//GEN-END:variables
 
 }
