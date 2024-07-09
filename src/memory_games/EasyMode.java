@@ -35,6 +35,8 @@ public class EasyMode extends javax.swing.JFrame {
         loadingLabels();
         addcard();
         jPanel1easy.setVisible(true);
+        InterfaceMain playerName = new InterfaceMain();
+        players.setText(playerName.text);
     }
 
     void loadingLabels() {
@@ -164,6 +166,7 @@ public class EasyMode extends javax.swing.JFrame {
         jlfailures = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
         Score = new javax.swing.JLabel();
+        players = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -319,6 +322,11 @@ public class EasyMode extends javax.swing.JFrame {
         Score.setBorder(javax.swing.BorderFactory.createTitledBorder("PUNTAJE"));
         jPanel1.add(Score);
         Score.setBounds(430, 110, 100, 60);
+
+        players.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        players.setBorder(javax.swing.BorderFactory.createTitledBorder("JUGADOR"));
+        jPanel1.add(players);
+        players.setBounds(170, 20, 170, 60);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(20, 30, 620, 640);
@@ -476,6 +484,7 @@ public class EasyMode extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1easy;
     private javax.swing.JLabel jlfailures;
     private javax.swing.JLabel jlhits;
+    private javax.swing.JLabel players;
     // End of variables declaration//GEN-END:variables
 
 }

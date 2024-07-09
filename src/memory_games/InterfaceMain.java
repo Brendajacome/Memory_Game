@@ -130,12 +130,14 @@ public class InterfaceMain extends javax.swing.JFrame {
     }//GEN-LAST:event_hardButtonActionPerformed
 
     private void playerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playerNameActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_playerNameActionPerformed
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         if (!playerName.getText().trim().isEmpty()) {
             text=playerName.getText();
+             playerName.setEditable(false);
+            submitButton.setEnabled(false);
             easyButton.setVisible(true);
             hardButton.setVisible(true);
         } else {
