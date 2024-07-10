@@ -32,7 +32,7 @@ public class EasyMode extends javax.swing.JFrame {
 
     public EasyMode() {
         initComponents();
-        setSize(700, 800);
+        setSize(700, 700);
         setLocationRelativeTo(this);
         loadingLabels();
         JLabel jlTimeBeforeFlip = new javax.swing.JLabel("");
@@ -77,19 +77,22 @@ public class EasyMode extends javax.swing.JFrame {
             live3.setIcon(liveIcon);
         }
         if (failures==1){
-            live3.setVisible(false);
-            JOptionPane.showMessageDialog(null, "Te quedan 2 vidas");
+            live1.setVisible(false);
+            JOptionPane.showMessageDialog(null, "You have 2 lives remaining.");
         }
         if(failures==2){
             live2.setVisible(false);
-            JOptionPane.showMessageDialog(null, "Te queda 1 vida");
+            JOptionPane.showMessageDialog(null, "You have 1 lives remaining.");
         }
         if(failures==3){
-            live1.setVisible(false);
-            JOptionPane.showMessageDialog(null, "Tienes un útlimo intento");
+            live3.setVisible(false);
+            JOptionPane.showMessageDialog(null, "You have one last try.");
         }
         if(failures==4){
-            JOptionPane.showMessageDialog(null, "Haz perdido");
+            JOptionPane.showMessageDialog(null, "You lose.");
+            GameOver Main = new GameOver();
+            Main.setVisible(true);
+            this.setVisible(false);
         }
     }
 
@@ -157,7 +160,7 @@ public class EasyMode extends javax.swing.JFrame {
     void comparationCards() {
         System.out.println("Comparing: " + Compare[0] + " and " + Compare[1]); // Debug print
         if (Compare[1].equals(Compare[0])) {
-            JOptionPane.showMessageDialog(null, "Es correcto");
+            JOptionPane.showMessageDialog(null, "That´s right");
             Labels.get(Quantitycard[0]).setVisible(false);
             Labels.get(Quantitycard[1]).setVisible(false);
             Hits++;
@@ -178,7 +181,7 @@ public class EasyMode extends javax.swing.JFrame {
     }
 
     boolean PlayingYesorNo() {
-        return StartButton.getText().equals("Jugando");
+        return StartButton.getText().equals("Playing");
     }
 
     @SuppressWarnings("unchecked")
@@ -215,14 +218,14 @@ public class EasyMode extends javax.swing.JFrame {
 
         jPanel1.setLayout(null);
 
-        StartButton.setText("Empezar");
+        StartButton.setText("Start");
         StartButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 StartButtonActionPerformed(evt);
             }
         });
         jPanel1.add(StartButton);
-        StartButton.setBounds(30, 120, 80, 23);
+        StartButton.setBounds(30, 30, 80, 23);
 
         jPanel1easy.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1easy.setLayout(null);
@@ -336,13 +339,13 @@ public class EasyMode extends javax.swing.JFrame {
         card11.setBounds(129, 310, 80, 80);
 
         jPanel1.add(jPanel1easy);
-        jPanel1easy.setBounds(30, 180, 350, 430);
+        jPanel1easy.setBounds(30, 120, 350, 430);
 
         jlhits.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jlhits.setText("    ");
-        jlhits.setBorder(javax.swing.BorderFactory.createTitledBorder("ACIERTOS"));
+        jlhits.setBorder(javax.swing.BorderFactory.createTitledBorder("HITS"));
         jPanel1.add(jlhits);
-        jlhits.setBounds(430, 236, 140, 90);
+        jlhits.setBounds(430, 110, 140, 90);
 
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -351,22 +354,22 @@ public class EasyMode extends javax.swing.JFrame {
             }
         });
         jPanel1.add(backButton);
-        backButton.setBounds(490, 540, 72, 23);
+        backButton.setBounds(500, 560, 72, 23);
 
         Score.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         Score.setText("           ");
-        Score.setBorder(javax.swing.BorderFactory.createTitledBorder("PUNTAJE"));
+        Score.setBorder(javax.swing.BorderFactory.createTitledBorder("SCORE"));
         jPanel1.add(Score);
-        Score.setBounds(430, 110, 140, 60);
+        Score.setBounds(430, 20, 140, 60);
 
         players.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        players.setBorder(javax.swing.BorderFactory.createTitledBorder("JUGADOR"));
+        players.setBorder(javax.swing.BorderFactory.createTitledBorder("PLAYER´S NAME"));
         jPanel1.add(players);
-        players.setBounds(200, 40, 170, 60);
+        players.setBounds(210, 20, 170, 60);
         jPanel1.add(jlTime);
         jlTime.setBounds(150, 120, 80, 30);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("VIDAS"));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("LIVES"));
         jPanel2.setLayout(null);
 
         live1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -397,7 +400,7 @@ public class EasyMode extends javax.swing.JFrame {
         live3.setBounds(90, 30, 35, 35);
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(430, 360, 140, 90);
+        jPanel2.setBounds(430, 260, 140, 90);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(20, 30, 620, 640);
@@ -500,9 +503,10 @@ public class EasyMode extends javax.swing.JFrame {
     private void StartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartButtonActionPerformed
         // TODO add your handling code here:
 
-        if (StartButton.getText().equals("Empezar")) {
-            StartButton.setText("Jugando");
+        if (StartButton.getText().equals("Start")) {
+            StartButton.setText("Playing");
             StartButton.setEnabled(false);
+            backButton.setEnabled(false);
             loadimageslabels();
             lifes();
         }

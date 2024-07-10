@@ -17,10 +17,11 @@ public class InterfaceMain extends javax.swing.JFrame {
      */
     public InterfaceMain() {
         initComponents();
-        setSize(800,600);
+        setSize(700,700);
         this.setLocationRelativeTo(null);
         easyButton.setVisible(false);
         hardButton.setVisible(false);
+        textInterface.setVisible(false);
     }
     public static String text ="";
     
@@ -39,6 +40,7 @@ public class InterfaceMain extends javax.swing.JFrame {
         playerName = new javax.swing.JTextField();
         submitButton = new javax.swing.JButton();
         hardButton = new javax.swing.JButton();
+        textInterface = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -73,6 +75,9 @@ public class InterfaceMain extends javax.swing.JFrame {
             }
         });
 
+        textInterface.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        textInterface.setText("Please, select your game mode.");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -87,12 +92,13 @@ public class InterfaceMain extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(easyButton)
-                                .addGap(42, 42, 42)
+                                .addGap(64, 64, 64)
                                 .addComponent(hardButton))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(playerName, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(submitButton)))))
+                                .addComponent(submitButton))
+                            .addComponent(textInterface))))
                 .addContainerGap(96, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -104,11 +110,13 @@ public class InterfaceMain extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(playerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(submitButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(textInterface)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(easyButton)
                     .addComponent(hardButton))
-                .addGap(238, 238, 238))
+                .addContainerGap(226, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
@@ -140,10 +148,11 @@ public class InterfaceMain extends javax.swing.JFrame {
             submitButton.setEnabled(false);
             easyButton.setVisible(true);
             hardButton.setVisible(true);
+            textInterface.setVisible(true);
         } else {
             easyButton.setVisible(false);
             hardButton.setVisible(false);
-            JOptionPane.showMessageDialog(this, "Por favor, ingresa un nombre.");
+            JOptionPane.showMessageDialog(this, "Please, enter your name");
         }
     }//GEN-LAST:event_submitButtonActionPerformed
 
@@ -189,5 +198,6 @@ public class InterfaceMain extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField playerName;
     private javax.swing.JButton submitButton;
+    private javax.swing.JLabel textInterface;
     // End of variables declaration//GEN-END:variables
 }

@@ -27,7 +27,7 @@ public class HardMode extends javax.swing.JFrame {
 
     public HardMode() {
         initComponents();
-        setSize(700, 800);
+        setSize(700, 700);
         setLocationRelativeTo(this);
         loadingLabels();
         addcard();
@@ -93,30 +93,34 @@ public class HardMode extends javax.swing.JFrame {
         timer.start();
 
     }
-    void lifes(){
+
+    void lifes() {
         ImageIcon liveIcon = new ImageIcon(getClass().getResource("/others/life.jpg"));
-        if (fail==0){
+        if (fail == 0) {
             live1.setIcon(liveIcon);
             live2.setIcon(liveIcon);
             live3.setIcon(liveIcon);
         }
-        if (fail==1){
-            live3.setVisible(false);
-            JOptionPane.showMessageDialog(null, "Te quedan 2 vidas");
-        }
-        if(fail==2){
-            live2.setVisible(false);
-            JOptionPane.showMessageDialog(null, "Te queda 1 vida");
-        }
-        if(fail==3){
+        if (fail == 1) {
             live1.setVisible(false);
-            JOptionPane.showMessageDialog(null, "Tienes un útlimo intento");
+            JOptionPane.showMessageDialog(null, "You have 2 lives remaining.");
         }
-        if(fail==4){
-            JOptionPane.showMessageDialog(null, "Haz perdido");
+        if (fail == 2) {
+            live2.setVisible(false);
+            JOptionPane.showMessageDialog(null, "You have 1 lives remaining.");
+        }
+        if (fail == 3) {
+            live3.setVisible(false);
+            JOptionPane.showMessageDialog(null, "You have one last try.");
+        }
+        if (fail == 4) {
+            JOptionPane.showMessageDialog(null, "You lose.");
+            GameOver Main = new GameOver();
+            Main.setVisible(true);
+            this.setVisible(false);
         }
     }
-    
+
     void flipCards() {
         ImageIcon backIcon = new ImageIcon(getClass().getResource("/others/1.jpg"));
         for (int i = 0; i < Labels.size(); i++) {
@@ -145,13 +149,13 @@ public class HardMode extends javax.swing.JFrame {
         } else {
             comparationCards();
         }
-        
+
     }
 
     void comparationCards() {
         System.out.println("Comparing: " + comparation[0] + " and " + comparation[1]); // Debug print
         if (comparation[1].equals(comparation[0])) {
-            JOptionPane.showMessageDialog(null, "Es correcto");
+            JOptionPane.showMessageDialog(null, "That´s right.");
             Labels.get(numCards[0]).setVisible(false);
             Labels.get(numCards[1]).setVisible(false);
             hits++;
@@ -175,6 +179,7 @@ public class HardMode extends javax.swing.JFrame {
     private void initComponents() {
 
         jDialog1 = new javax.swing.JDialog();
+        jCheckBox1 = new javax.swing.JCheckBox();
         jPanelHard = new javax.swing.JPanel();
         card1 = new javax.swing.JLabel();
         card2 = new javax.swing.JLabel();
@@ -213,10 +218,13 @@ public class HardMode extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        jCheckBox1.setText("jCheckBox1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
         jPanelHard.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelHard.setLayout(null);
 
         card1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -224,6 +232,8 @@ public class HardMode extends javax.swing.JFrame {
                 card1MouseClicked(evt);
             }
         });
+        jPanelHard.add(card1);
+        card1.setBounds(17, 15, 80, 80);
 
         card2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -231,6 +241,8 @@ public class HardMode extends javax.swing.JFrame {
                 card2MouseClicked(evt);
             }
         });
+        jPanelHard.add(card2);
+        card2.setBounds(109, 15, 80, 80);
 
         card4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -238,6 +250,8 @@ public class HardMode extends javax.swing.JFrame {
                 card4MouseClicked(evt);
             }
         });
+        jPanelHard.add(card4);
+        card4.setBounds(293, 15, 80, 80);
 
         card5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -245,6 +259,8 @@ public class HardMode extends javax.swing.JFrame {
                 card5MouseClicked(evt);
             }
         });
+        jPanelHard.add(card5);
+        card5.setBounds(17, 107, 80, 80);
 
         card6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -252,6 +268,8 @@ public class HardMode extends javax.swing.JFrame {
                 card6MouseClicked(evt);
             }
         });
+        jPanelHard.add(card6);
+        card6.setBounds(109, 107, 80, 80);
 
         card9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card9.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -259,6 +277,8 @@ public class HardMode extends javax.swing.JFrame {
                 card9MouseClicked(evt);
             }
         });
+        jPanelHard.add(card9);
+        card9.setBounds(17, 199, 80, 80);
 
         card10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card10.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -266,6 +286,8 @@ public class HardMode extends javax.swing.JFrame {
                 card10MouseClicked(evt);
             }
         });
+        jPanelHard.add(card10);
+        card10.setBounds(109, 199, 80, 80);
 
         card11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card11.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -273,6 +295,8 @@ public class HardMode extends javax.swing.JFrame {
                 card11MouseClicked(evt);
             }
         });
+        jPanelHard.add(card11);
+        card11.setBounds(201, 199, 80, 80);
 
         card12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card12.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -280,6 +304,8 @@ public class HardMode extends javax.swing.JFrame {
                 card12MouseClicked(evt);
             }
         });
+        jPanelHard.add(card12);
+        card12.setBounds(293, 199, 80, 80);
 
         card13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card13.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -287,6 +313,8 @@ public class HardMode extends javax.swing.JFrame {
                 card13MouseClicked(evt);
             }
         });
+        jPanelHard.add(card13);
+        card13.setBounds(17, 291, 80, 80);
 
         card14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card14.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -294,6 +322,8 @@ public class HardMode extends javax.swing.JFrame {
                 card14MouseClicked(evt);
             }
         });
+        jPanelHard.add(card14);
+        card14.setBounds(109, 291, 80, 80);
 
         card16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card16.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -301,6 +331,8 @@ public class HardMode extends javax.swing.JFrame {
                 card16MouseClicked(evt);
             }
         });
+        jPanelHard.add(card16);
+        card16.setBounds(293, 291, 80, 80);
 
         card15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card15.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -308,6 +340,8 @@ public class HardMode extends javax.swing.JFrame {
                 card15MouseClicked(evt);
             }
         });
+        jPanelHard.add(card15);
+        card15.setBounds(201, 291, 80, 80);
 
         card8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card8.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -315,6 +349,8 @@ public class HardMode extends javax.swing.JFrame {
                 card8MouseClicked(evt);
             }
         });
+        jPanelHard.add(card8);
+        card8.setBounds(293, 107, 80, 80);
 
         card7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card7.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -322,6 +358,8 @@ public class HardMode extends javax.swing.JFrame {
                 card7MouseClicked(evt);
             }
         });
+        jPanelHard.add(card7);
+        card7.setBounds(201, 107, 80, 80);
 
         card3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -329,88 +367,13 @@ public class HardMode extends javax.swing.JFrame {
                 card3MouseClicked(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanelHardLayout = new javax.swing.GroupLayout(jPanelHard);
-        jPanelHard.setLayout(jPanelHardLayout);
-        jPanelHardLayout.setHorizontalGroup(
-            jPanelHardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelHardLayout.createSequentialGroup()
-                .addGroup(jPanelHardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelHardLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(card13, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(card14, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(card15, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelHardLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanelHardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanelHardLayout.createSequentialGroup()
-                                .addComponent(card9, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(card10, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanelHardLayout.createSequentialGroup()
-                                .addGroup(jPanelHardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(card1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(card5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanelHardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(card6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(card2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanelHardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(card11, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(card7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(card3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelHardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(card12, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(card16, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(card4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(card8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
-        jPanelHardLayout.setVerticalGroup(
-            jPanelHardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelHardLayout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
-                .addGroup(jPanelHardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelHardLayout.createSequentialGroup()
-                        .addComponent(card1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(card5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelHardLayout.createSequentialGroup()
-                        .addGroup(jPanelHardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(card4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(card2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(card3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanelHardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(card6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(card8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(card7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelHardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelHardLayout.createSequentialGroup()
-                        .addGroup(jPanelHardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(card12, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(card11, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(card10, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanelHardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(card15, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(card14, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(card16, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(card13, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(card9, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14))
-        );
+        jPanelHard.add(card3);
+        card3.setBounds(201, 15, 80, 80);
 
         getContentPane().add(jPanelHard);
-        jPanelHard.setBounds(6, 78, 395, 386);
+        jPanelHard.setBounds(6, 78, 390, 390);
 
-        play.setText("Empezar");
+        play.setText("Start");
         play.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 playActionPerformed(evt);
@@ -430,22 +393,22 @@ public class HardMode extends javax.swing.JFrame {
 
         gameScore.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         gameScore.setText("           ");
-        gameScore.setBorder(javax.swing.BorderFactory.createTitledBorder("PUNTAJE"));
+        gameScore.setBorder(javax.swing.BorderFactory.createTitledBorder("SCORE"));
         getContentPane().add(gameScore);
         gameScore.setBounds(420, 10, 140, 60);
 
         numHits.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         numHits.setText("    ");
-        numHits.setBorder(javax.swing.BorderFactory.createTitledBorder("ACIERTOS"));
+        numHits.setBorder(javax.swing.BorderFactory.createTitledBorder("HITS"));
         getContentPane().add(numHits);
         numHits.setBounds(420, 130, 140, 90);
 
         players.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        players.setBorder(javax.swing.BorderFactory.createTitledBorder("Nombre del Jugador"));
+        players.setBorder(javax.swing.BorderFactory.createTitledBorder("PLAYER´S NAME"));
         getContentPane().add(players);
         players.setBounds(230, 10, 170, 50);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("VIDAS"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("LIVES"));
         jPanel1.setLayout(null);
 
         live1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -484,7 +447,7 @@ public class HardMode extends javax.swing.JFrame {
     private void playActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playActionPerformed
         backButton.setEnabled(false);
         if (hardRoute[0][0] == null) {
-            play.setText("Jugando");
+            play.setText("Playing");
             play.setEnabled(false);
             loadimageslabels();
         }
@@ -499,7 +462,7 @@ public class HardMode extends javax.swing.JFrame {
 
     private void card1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_card1MouseClicked
         showImages(Integer.parseInt(card1.getText()) - 1);
-        
+
     }//GEN-LAST:event_card1MouseClicked
 
     private void card2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_card2MouseClicked
@@ -628,6 +591,7 @@ public class HardMode extends javax.swing.JFrame {
     private javax.swing.JLabel card8;
     private javax.swing.JLabel card9;
     private javax.swing.JLabel gameScore;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelHard;
