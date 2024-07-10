@@ -69,6 +69,29 @@ public class EasyMode extends javax.swing.JFrame {
             piceasy[pic] = "/imgEasy/" + (pic + 1) + ".jpg";
         }
     }
+    void lifes(){
+        ImageIcon liveIcon = new ImageIcon(getClass().getResource("/others/life.jpg"));
+        if (failures==0){
+            live1.setIcon(liveIcon);
+            live2.setIcon(liveIcon);
+            live3.setIcon(liveIcon);
+        }
+        if (failures==1){
+            live3.setVisible(false);
+            JOptionPane.showMessageDialog(null, "Te quedan 2 vidas");
+        }
+        if(failures==2){
+            live2.setVisible(false);
+            JOptionPane.showMessageDialog(null, "Te queda 1 vida");
+        }
+        if(failures==3){
+            live1.setVisible(false);
+            JOptionPane.showMessageDialog(null, "Tienes un útlimo intento");
+        }
+        if(failures==4){
+            JOptionPane.showMessageDialog(null, "Haz perdido");
+        }
+    }
 
     public void loadimageslabels() {
         int counter = 0;
@@ -97,9 +120,9 @@ public class EasyMode extends javax.swing.JFrame {
             timer.start();
         }
     }
-
+    
     void flipcards() {
-        ImageIcon backIcon = new ImageIcon(getClass().getResource("/others/1.jpg"));
+        ImageIcon backIcon = new ImageIcon(getClass().getResource("/others/pokemon.jpeg"));
         for (int i = 0; i < Labels.size(); i++) {
             Labels.get(i).setIcon(backIcon);
 
@@ -143,7 +166,7 @@ public class EasyMode extends javax.swing.JFrame {
             Score.setText("" + score);
         } else {
             failures++;
-            jlfailures.setText("" + failures);
+            lifes();
             flipcards();
 
             if (score >= 50) {
@@ -178,11 +201,14 @@ public class EasyMode extends javax.swing.JFrame {
         card12 = new javax.swing.JLabel();
         card11 = new javax.swing.JLabel();
         jlhits = new javax.swing.JLabel();
-        jlfailures = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
         Score = new javax.swing.JLabel();
         players = new javax.swing.JLabel();
         jlTime = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        live1 = new javax.swing.JLabel();
+        live2 = new javax.swing.JLabel();
+        live3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -316,13 +342,7 @@ public class EasyMode extends javax.swing.JFrame {
         jlhits.setText("    ");
         jlhits.setBorder(javax.swing.BorderFactory.createTitledBorder("ACIERTOS"));
         jPanel1.add(jlhits);
-        jlhits.setBounds(430, 236, 100, 90);
-
-        jlfailures.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jlfailures.setText("    ");
-        jlfailures.setBorder(javax.swing.BorderFactory.createTitledBorder("FALLOS"));
-        jPanel1.add(jlfailures);
-        jlfailures.setBounds(430, 361, 100, 90);
+        jlhits.setBounds(430, 236, 140, 90);
 
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -337,14 +357,47 @@ public class EasyMode extends javax.swing.JFrame {
         Score.setText("           ");
         Score.setBorder(javax.swing.BorderFactory.createTitledBorder("PUNTAJE"));
         jPanel1.add(Score);
-        Score.setBounds(430, 110, 100, 60);
+        Score.setBounds(430, 110, 140, 60);
 
         players.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         players.setBorder(javax.swing.BorderFactory.createTitledBorder("JUGADOR"));
         jPanel1.add(players);
-        players.setBounds(200, 30, 170, 60);
+        players.setBounds(200, 40, 170, 60);
         jPanel1.add(jlTime);
         jlTime.setBounds(150, 120, 80, 30);
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("VIDAS"));
+        jPanel2.setLayout(null);
+
+        live1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        live1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                live1MouseClicked(evt);
+            }
+        });
+        jPanel2.add(live1);
+        live1.setBounds(10, 30, 35, 35);
+
+        live2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        live2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                live2MouseClicked(evt);
+            }
+        });
+        jPanel2.add(live2);
+        live2.setBounds(50, 30, 35, 35);
+
+        live3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        live3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                live3MouseClicked(evt);
+            }
+        });
+        jPanel2.add(live3);
+        live3.setBounds(90, 30, 35, 35);
+
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(430, 360, 140, 90);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(20, 30, 620, 640);
@@ -451,9 +504,22 @@ public class EasyMode extends javax.swing.JFrame {
             StartButton.setText("Jugando");
             StartButton.setEnabled(false);
             loadimageslabels();
+            lifes();
         }
 
     }//GEN-LAST:event_StartButtonActionPerformed
+
+    private void live1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_live1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_live1MouseClicked
+
+    private void live2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_live2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_live2MouseClicked
+
+    private void live3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_live3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_live3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -508,9 +574,12 @@ public class EasyMode extends javax.swing.JFrame {
     private javax.swing.JLabel card9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel1easy;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel jlTime;
-    private javax.swing.JLabel jlfailures;
     private javax.swing.JLabel jlhits;
+    private javax.swing.JLabel live1;
+    private javax.swing.JLabel live2;
+    private javax.swing.JLabel live3;
     private javax.swing.JLabel players;
     // End of variables declaration//GEN-END:variables
 

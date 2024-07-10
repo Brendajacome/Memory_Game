@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 public class HardMode extends javax.swing.JFrame {
 
@@ -87,8 +88,35 @@ public class HardMode extends javax.swing.JFrame {
                 counter++;
             }
         }
-    }
+        Timer timer = new Timer(3000, e -> flipCards());
+        timer.setRepeats(false);
+        timer.start();
 
+    }
+    void lifes(){
+        ImageIcon liveIcon = new ImageIcon(getClass().getResource("/others/life.jpg"));
+        if (fail==0){
+            live1.setIcon(liveIcon);
+            live2.setIcon(liveIcon);
+            live3.setIcon(liveIcon);
+        }
+        if (fail==1){
+            live3.setVisible(false);
+            JOptionPane.showMessageDialog(null, "Te quedan 2 vidas");
+        }
+        if(fail==2){
+            live2.setVisible(false);
+            JOptionPane.showMessageDialog(null, "Te queda 1 vida");
+        }
+        if(fail==3){
+            live1.setVisible(false);
+            JOptionPane.showMessageDialog(null, "Tienes un útlimo intento");
+        }
+        if(fail==4){
+            JOptionPane.showMessageDialog(null, "Haz perdido");
+        }
+    }
+    
     void flipCards() {
         ImageIcon backIcon = new ImageIcon(getClass().getResource("/others/1.jpg"));
         for (int i = 0; i < Labels.size(); i++) {
@@ -117,6 +145,7 @@ public class HardMode extends javax.swing.JFrame {
         } else {
             comparationCards();
         }
+        
     }
 
     void comparationCards() {
@@ -132,7 +161,7 @@ public class HardMode extends javax.swing.JFrame {
         } else {
             flipCards();
             fail++;
-            numFails.setText("" + fail);
+            lifes();
             if (score >= 50) {
                 score = score - 50;
             }
@@ -145,6 +174,7 @@ public class HardMode extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
         jPanelHard = new javax.swing.JPanel();
         card1 = new javax.swing.JLabel();
         card2 = new javax.swing.JLabel();
@@ -166,8 +196,22 @@ public class HardMode extends javax.swing.JFrame {
         backButton = new javax.swing.JButton();
         gameScore = new javax.swing.JLabel();
         numHits = new javax.swing.JLabel();
-        numFails = new javax.swing.JLabel();
         players = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        live1 = new javax.swing.JLabel();
+        live2 = new javax.swing.JLabel();
+        live3 = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -373,7 +417,7 @@ public class HardMode extends javax.swing.JFrame {
             }
         });
         getContentPane().add(play);
-        play.setBounds(6, 37, 76, 23);
+        play.setBounds(10, 20, 80, 23);
 
         backButton.setText("Volver");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -388,24 +432,51 @@ public class HardMode extends javax.swing.JFrame {
         gameScore.setText("           ");
         gameScore.setBorder(javax.swing.BorderFactory.createTitledBorder("PUNTAJE"));
         getContentPane().add(gameScore);
-        gameScore.setBounds(440, 10, 100, 60);
+        gameScore.setBounds(420, 10, 140, 60);
 
         numHits.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         numHits.setText("    ");
         numHits.setBorder(javax.swing.BorderFactory.createTitledBorder("ACIERTOS"));
         getContentPane().add(numHits);
-        numHits.setBounds(440, 130, 100, 90);
-
-        numFails.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        numFails.setText("    ");
-        numFails.setBorder(javax.swing.BorderFactory.createTitledBorder("FALLOS"));
-        getContentPane().add(numFails);
-        numFails.setBounds(440, 250, 100, 90);
+        numHits.setBounds(420, 130, 140, 90);
 
         players.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         players.setBorder(javax.swing.BorderFactory.createTitledBorder("Nombre del Jugador"));
         getContentPane().add(players);
-        players.setBounds(180, 10, 170, 50);
+        players.setBounds(230, 10, 170, 50);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("VIDAS"));
+        jPanel1.setLayout(null);
+
+        live1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        live1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                live1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(live1);
+        live1.setBounds(10, 30, 35, 35);
+
+        live2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        live2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                live2MouseClicked(evt);
+            }
+        });
+        jPanel1.add(live2);
+        live2.setBounds(50, 30, 35, 35);
+
+        live3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        live3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                live3MouseClicked(evt);
+            }
+        });
+        jPanel1.add(live3);
+        live3.setBounds(90, 30, 35, 35);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(420, 270, 140, 90);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -413,13 +484,11 @@ public class HardMode extends javax.swing.JFrame {
     private void playActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playActionPerformed
         backButton.setEnabled(false);
         if (hardRoute[0][0] == null) {
-            loadimageslabels();
-            play.setText("Jugar");
-        } else {
-            flipCards();
             play.setText("Jugando");
             play.setEnabled(false);
+            loadimageslabels();
         }
+        lifes();
     }//GEN-LAST:event_playActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -430,6 +499,7 @@ public class HardMode extends javax.swing.JFrame {
 
     private void card1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_card1MouseClicked
         showImages(Integer.parseInt(card1.getText()) - 1);
+        
     }//GEN-LAST:event_card1MouseClicked
 
     private void card2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_card2MouseClicked
@@ -492,6 +562,18 @@ public class HardMode extends javax.swing.JFrame {
         showImages(Integer.parseInt(card16.getText()) - 1);
     }//GEN-LAST:event_card16MouseClicked
 
+    private void live1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_live1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_live1MouseClicked
+
+    private void live2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_live2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_live2MouseClicked
+
+    private void live3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_live3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_live3MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -546,8 +628,12 @@ public class HardMode extends javax.swing.JFrame {
     private javax.swing.JLabel card8;
     private javax.swing.JLabel card9;
     private javax.swing.JLabel gameScore;
+    private javax.swing.JDialog jDialog1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelHard;
-    private javax.swing.JLabel numFails;
+    private javax.swing.JLabel live1;
+    private javax.swing.JLabel live2;
+    private javax.swing.JLabel live3;
     private javax.swing.JLabel numHits;
     private javax.swing.JButton play;
     private javax.swing.JLabel players;
