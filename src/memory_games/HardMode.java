@@ -180,7 +180,10 @@ public class HardMode extends javax.swing.JFrame {
 
         jDialog1 = new javax.swing.JDialog();
         jCheckBox1 = new javax.swing.JCheckBox();
+<<<<<<< HEAD
         jPanel2 = new javax.swing.JPanel();
+=======
+>>>>>>> 7067bd2770f44dce8b8d7614da794c95c332bd4d
         jPanelHard = new javax.swing.JPanel();
         card1 = new javax.swing.JLabel();
         card2 = new javax.swing.JLabel();
@@ -202,11 +205,18 @@ public class HardMode extends javax.swing.JFrame {
         play = new javax.swing.JButton();
         gameScore = new javax.swing.JLabel();
         numHits = new javax.swing.JLabel();
+<<<<<<< HEAD
+=======
+        players = new javax.swing.JLabel();
+>>>>>>> 7067bd2770f44dce8b8d7614da794c95c332bd4d
         jPanel1 = new javax.swing.JPanel();
         live1 = new javax.swing.JLabel();
         live2 = new javax.swing.JLabel();
         live3 = new javax.swing.JLabel();
+<<<<<<< HEAD
         backButton = new javax.swing.JButton();
+=======
+>>>>>>> 7067bd2770f44dce8b8d7614da794c95c332bd4d
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -224,9 +234,14 @@ public class HardMode extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
+<<<<<<< HEAD
         jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.setPreferredSize(new java.awt.Dimension(700, 700));
         jPanel2.setLayout(null);
+=======
+        jPanelHard.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelHard.setLayout(null);
+>>>>>>> 7067bd2770f44dce8b8d7614da794c95c332bd4d
 
         jPanelHard.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanelHard.setLayout(null);
@@ -374,6 +389,7 @@ public class HardMode extends javax.swing.JFrame {
         });
         jPanelHard.add(card3);
         card3.setBounds(201, 15, 80, 80);
+<<<<<<< HEAD
 
         jPanel2.add(jPanelHard);
         jPanelHard.setBounds(40, 170, 390, 390);
@@ -382,6 +398,11 @@ public class HardMode extends javax.swing.JFrame {
         players.setBorder(javax.swing.BorderFactory.createTitledBorder("PLAYER´S NAME"));
         jPanel2.add(players);
         players.setBounds(200, 100, 170, 50);
+=======
+
+        getContentPane().add(jPanelHard);
+        jPanelHard.setBounds(6, 78, 390, 390);
+>>>>>>> 7067bd2770f44dce8b8d7614da794c95c332bd4d
 
         play.setText("Start");
         play.addActionListener(new java.awt.event.ActionListener() {
@@ -389,6 +410,7 @@ public class HardMode extends javax.swing.JFrame {
                 playActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         jPanel2.add(play);
         play.setBounds(80, 120, 80, 23);
 
@@ -436,6 +458,10 @@ public class HardMode extends javax.swing.JFrame {
 
         jPanel2.add(jPanel1);
         jPanel1.setBounds(460, 270, 140, 90);
+=======
+        getContentPane().add(play);
+        play.setBounds(10, 20, 80, 23);
+>>>>>>> 7067bd2770f44dce8b8d7614da794c95c332bd4d
 
         backButton.setText("Volver");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -446,8 +472,60 @@ public class HardMode extends javax.swing.JFrame {
         jPanel2.add(backButton);
         backButton.setBounds(500, 550, 72, 23);
 
+<<<<<<< HEAD
         getContentPane().add(jPanel2);
         jPanel2.setBounds(30, 40, 630, 590);
+=======
+        gameScore.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        gameScore.setText("           ");
+        gameScore.setBorder(javax.swing.BorderFactory.createTitledBorder("SCORE"));
+        getContentPane().add(gameScore);
+        gameScore.setBounds(420, 10, 140, 60);
+
+        numHits.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        numHits.setText("    ");
+        numHits.setBorder(javax.swing.BorderFactory.createTitledBorder("HITS"));
+        getContentPane().add(numHits);
+        numHits.setBounds(420, 130, 140, 90);
+
+        players.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        players.setBorder(javax.swing.BorderFactory.createTitledBorder("PLAYER´S NAME"));
+        getContentPane().add(players);
+        players.setBounds(230, 10, 170, 50);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("LIVES"));
+        jPanel1.setLayout(null);
+
+        live1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        live1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                live1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(live1);
+        live1.setBounds(10, 30, 35, 35);
+
+        live2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        live2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                live2MouseClicked(evt);
+            }
+        });
+        jPanel1.add(live2);
+        live2.setBounds(50, 30, 35, 35);
+
+        live3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        live3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                live3MouseClicked(evt);
+            }
+        });
+        jPanel1.add(live3);
+        live3.setBounds(90, 30, 35, 35);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(420, 270, 140, 90);
+>>>>>>> 7067bd2770f44dce8b8d7614da794c95c332bd4d
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -602,7 +680,10 @@ public class HardMode extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JPanel jPanel1;
+<<<<<<< HEAD
     private javax.swing.JPanel jPanel2;
+=======
+>>>>>>> 7067bd2770f44dce8b8d7614da794c95c332bd4d
     private javax.swing.JPanel jPanelHard;
     private javax.swing.JLabel live1;
     private javax.swing.JLabel live2;

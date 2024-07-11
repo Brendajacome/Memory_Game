@@ -227,7 +227,11 @@ public class EasyMode extends javax.swing.JFrame {
             }
         });
         jPanel1.add(StartButton);
+<<<<<<< HEAD
         StartButton.setBounds(30, 110, 80, 23);
+=======
+        StartButton.setBounds(30, 30, 80, 23);
+>>>>>>> 7067bd2770f44dce8b8d7614da794c95c332bd4d
 
         jPanel1easy.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1easy.setLayout(null);
@@ -341,13 +345,21 @@ public class EasyMode extends javax.swing.JFrame {
         card11.setBounds(129, 310, 80, 80);
 
         jPanel1.add(jPanel1easy);
+<<<<<<< HEAD
         jPanel1easy.setBounds(30, 170, 330, 430);
+=======
+        jPanel1easy.setBounds(30, 120, 350, 430);
+>>>>>>> 7067bd2770f44dce8b8d7614da794c95c332bd4d
 
         jlhits.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jlhits.setText("    ");
         jlhits.setBorder(javax.swing.BorderFactory.createTitledBorder("HITS"));
         jPanel1.add(jlhits);
+<<<<<<< HEAD
         jlhits.setBounds(420, 170, 140, 90);
+=======
+        jlhits.setBounds(430, 110, 140, 90);
+>>>>>>> 7067bd2770f44dce8b8d7614da794c95c332bd4d
 
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -356,7 +368,11 @@ public class EasyMode extends javax.swing.JFrame {
             }
         });
         jPanel1.add(backButton);
+<<<<<<< HEAD
         backButton.setBounds(450, 590, 72, 23);
+=======
+        backButton.setBounds(500, 560, 72, 23);
+>>>>>>> 7067bd2770f44dce8b8d7614da794c95c332bd4d
 
         Score.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         Score.setText("           ");
@@ -367,7 +383,11 @@ public class EasyMode extends javax.swing.JFrame {
         players.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         players.setBorder(javax.swing.BorderFactory.createTitledBorder("PLAYER´S NAME"));
         jPanel1.add(players);
+<<<<<<< HEAD
         players.setBounds(170, 90, 170, 60);
+=======
+        players.setBounds(210, 20, 170, 60);
+>>>>>>> 7067bd2770f44dce8b8d7614da794c95c332bd4d
         jPanel1.add(jlTime);
         jlTime.setBounds(150, 120, 80, 30);
 
@@ -402,7 +422,11 @@ public class EasyMode extends javax.swing.JFrame {
         live3.setBounds(90, 30, 35, 35);
 
         jPanel1.add(jPanel2);
+<<<<<<< HEAD
         jPanel2.setBounds(420, 280, 140, 90);
+=======
+        jPanel2.setBounds(430, 260, 140, 90);
+>>>>>>> 7067bd2770f44dce8b8d7614da794c95c332bd4d
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(20, 30, 620, 640);

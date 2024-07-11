@@ -44,7 +44,11 @@ public class InterfaceMain extends javax.swing.JFrame {
         textInterface = new javax.swing.JLabel();
         easyButton = new javax.swing.JButton();
         hardButton = new javax.swing.JButton();
+<<<<<<< HEAD
         jLabel3 = new javax.swing.JLabel();
+=======
+        textInterface = new javax.swing.JLabel();
+>>>>>>> 7067bd2770f44dce8b8d7614da794c95c332bd4d
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(700, 700));
@@ -103,9 +107,55 @@ public class InterfaceMain extends javax.swing.JFrame {
         });
         jPanel1.add(hardButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, 130, 50));
 
+<<<<<<< HEAD
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/others/MEMORY GAME.jpg"))); // NOI18N
         jLabel3.setPreferredSize(new java.awt.Dimension(700, 700));
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 700));
+=======
+        textInterface.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        textInterface.setText("Please, select your game mode.");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(146, 146, 146)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(108, 108, 108)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(easyButton)
+                                .addGap(64, 64, 64)
+                                .addComponent(hardButton))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(playerName, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(submitButton))
+                            .addComponent(textInterface))))
+                .addContainerGap(96, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel1)
+                .addGap(44, 44, 44)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(playerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(submitButton))
+                .addGap(18, 18, 18)
+                .addComponent(textInterface)
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(easyButton)
+                    .addComponent(hardButton))
+                .addContainerGap(226, Short.MAX_VALUE))
+        );
+>>>>>>> 7067bd2770f44dce8b8d7614da794c95c332bd4d
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
