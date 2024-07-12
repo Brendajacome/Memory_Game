@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package memory_games;
+package memory_games.HardMode;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
@@ -10,6 +10,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import memory_games.GameOver.GameOver;
+import memory_games.GameWin.GameWin;
+import memory_games.InterfaceMain;
+import memory_games.cardsrandom;
 
 public class HardMode extends javax.swing.JFrame {
 
@@ -22,6 +26,7 @@ public class HardMode extends javax.swing.JFrame {
     int score = 0;
     int hits = 0;
     int fail = 0;
+    int cardsFound = 0;
     String[] comparation = new String[2];
     int[] numCards = new int[2];
 
@@ -162,6 +167,8 @@ public class HardMode extends javax.swing.JFrame {
             numHits.setText("" + hits);
             score = score + 100;
             gameScore.setText("" + score);
+            cardsFound++;
+            finalGame();
         } else {
             flipCards();
             fail++;
@@ -174,16 +181,21 @@ public class HardMode extends javax.swing.JFrame {
         clickCounter = 0;
     }
 
+    void finalGame() {
+        if (cardsFound == 8) {
+            JOptionPane.showMessageDialog(null, "You win.");
+            GameWin Main = new GameWin();
+            Main.setVisible(true);
+            this.setVisible(false);
+        }
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jDialog1 = new javax.swing.JDialog();
         jCheckBox1 = new javax.swing.JCheckBox();
-<<<<<<< HEAD
-        jPanel2 = new javax.swing.JPanel();
-=======
->>>>>>> 7067bd2770f44dce8b8d7614da794c95c332bd4d
         jPanelHard = new javax.swing.JPanel();
         card1 = new javax.swing.JLabel();
         card2 = new javax.swing.JLabel();
@@ -201,22 +213,15 @@ public class HardMode extends javax.swing.JFrame {
         card8 = new javax.swing.JLabel();
         card7 = new javax.swing.JLabel();
         card3 = new javax.swing.JLabel();
-        players = new javax.swing.JLabel();
         play = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
         gameScore = new javax.swing.JLabel();
         numHits = new javax.swing.JLabel();
-<<<<<<< HEAD
-=======
         players = new javax.swing.JLabel();
->>>>>>> 7067bd2770f44dce8b8d7614da794c95c332bd4d
         jPanel1 = new javax.swing.JPanel();
         live1 = new javax.swing.JLabel();
         live2 = new javax.swing.JLabel();
         live3 = new javax.swing.JLabel();
-<<<<<<< HEAD
-        backButton = new javax.swing.JButton();
-=======
->>>>>>> 7067bd2770f44dce8b8d7614da794c95c332bd4d
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -234,19 +239,10 @@ public class HardMode extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-<<<<<<< HEAD
-        jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.setPreferredSize(new java.awt.Dimension(700, 700));
-        jPanel2.setLayout(null);
-=======
         jPanelHard.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelHard.setLayout(null);
->>>>>>> 7067bd2770f44dce8b8d7614da794c95c332bd4d
 
-        jPanelHard.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanelHard.setLayout(null);
-
-        card1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        card1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card1MouseClicked(evt);
@@ -255,7 +251,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card1);
         card1.setBounds(17, 15, 80, 80);
 
-        card2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        card2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card2MouseClicked(evt);
@@ -264,7 +260,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card2);
         card2.setBounds(109, 15, 80, 80);
 
-        card4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        card4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card4MouseClicked(evt);
@@ -273,7 +269,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card4);
         card4.setBounds(293, 15, 80, 80);
 
-        card5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        card5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card5MouseClicked(evt);
@@ -282,7 +278,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card5);
         card5.setBounds(17, 107, 80, 80);
 
-        card6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        card6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card6MouseClicked(evt);
@@ -291,7 +287,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card6);
         card6.setBounds(109, 107, 80, 80);
 
-        card9.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        card9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card9MouseClicked(evt);
@@ -300,7 +296,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card9);
         card9.setBounds(17, 199, 80, 80);
 
-        card10.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        card10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card10MouseClicked(evt);
@@ -309,7 +305,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card10);
         card10.setBounds(109, 199, 80, 80);
 
-        card11.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        card11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card11MouseClicked(evt);
@@ -318,7 +314,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card11);
         card11.setBounds(201, 199, 80, 80);
 
-        card12.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        card12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card12MouseClicked(evt);
@@ -327,7 +323,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card12);
         card12.setBounds(293, 199, 80, 80);
 
-        card13.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        card13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card13MouseClicked(evt);
@@ -336,7 +332,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card13);
         card13.setBounds(17, 291, 80, 80);
 
-        card14.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        card14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card14MouseClicked(evt);
@@ -345,7 +341,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card14);
         card14.setBounds(109, 291, 80, 80);
 
-        card16.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        card16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card16MouseClicked(evt);
@@ -354,7 +350,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card16);
         card16.setBounds(293, 291, 80, 80);
 
-        card15.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        card15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card15MouseClicked(evt);
@@ -363,7 +359,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card15);
         card15.setBounds(201, 291, 80, 80);
 
-        card8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        card8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card8MouseClicked(evt);
@@ -372,7 +368,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card8);
         card8.setBounds(293, 107, 80, 80);
 
-        card7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        card7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card7MouseClicked(evt);
@@ -381,7 +377,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card7);
         card7.setBounds(201, 107, 80, 80);
 
-        card3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        card3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         card3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card3MouseClicked(evt);
@@ -389,20 +385,9 @@ public class HardMode extends javax.swing.JFrame {
         });
         jPanelHard.add(card3);
         card3.setBounds(201, 15, 80, 80);
-<<<<<<< HEAD
-
-        jPanel2.add(jPanelHard);
-        jPanelHard.setBounds(40, 170, 390, 390);
-
-        players.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        players.setBorder(javax.swing.BorderFactory.createTitledBorder("PLAYER´S NAME"));
-        jPanel2.add(players);
-        players.setBounds(200, 100, 170, 50);
-=======
 
         getContentPane().add(jPanelHard);
         jPanelHard.setBounds(6, 78, 390, 390);
->>>>>>> 7067bd2770f44dce8b8d7614da794c95c332bd4d
 
         play.setText("Start");
         play.addActionListener(new java.awt.event.ActionListener() {
@@ -410,58 +395,8 @@ public class HardMode extends javax.swing.JFrame {
                 playActionPerformed(evt);
             }
         });
-<<<<<<< HEAD
-        jPanel2.add(play);
-        play.setBounds(80, 120, 80, 23);
-
-        gameScore.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        gameScore.setText("           ");
-        gameScore.setBorder(javax.swing.BorderFactory.createTitledBorder("SCORE"));
-        jPanel2.add(gameScore);
-        gameScore.setBounds(460, 30, 140, 60);
-
-        numHits.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        numHits.setText("    ");
-        numHits.setBorder(javax.swing.BorderFactory.createTitledBorder("HITS"));
-        jPanel2.add(numHits);
-        numHits.setBounds(460, 170, 140, 90);
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("LIVES"));
-        jPanel1.setLayout(null);
-
-        live1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        live1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                live1MouseClicked(evt);
-            }
-        });
-        jPanel1.add(live1);
-        live1.setBounds(10, 30, 35, 35);
-
-        live2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        live2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                live2MouseClicked(evt);
-            }
-        });
-        jPanel1.add(live2);
-        live2.setBounds(50, 30, 35, 35);
-
-        live3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        live3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                live3MouseClicked(evt);
-            }
-        });
-        jPanel1.add(live3);
-        live3.setBounds(90, 30, 35, 35);
-
-        jPanel2.add(jPanel1);
-        jPanel1.setBounds(460, 270, 140, 90);
-=======
         getContentPane().add(play);
         play.setBounds(10, 20, 80, 23);
->>>>>>> 7067bd2770f44dce8b8d7614da794c95c332bd4d
 
         backButton.setText("Volver");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -469,13 +404,9 @@ public class HardMode extends javax.swing.JFrame {
                 backButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(backButton);
-        backButton.setBounds(500, 550, 72, 23);
+        getContentPane().add(backButton);
+        backButton.setBounds(480, 460, 72, 23);
 
-<<<<<<< HEAD
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(30, 40, 630, 590);
-=======
         gameScore.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         gameScore.setText("           ");
         gameScore.setBorder(javax.swing.BorderFactory.createTitledBorder("SCORE"));
@@ -525,7 +456,6 @@ public class HardMode extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(420, 270, 140, 90);
->>>>>>> 7067bd2770f44dce8b8d7614da794c95c332bd4d
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -680,10 +610,6 @@ public class HardMode extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JPanel jPanel1;
-<<<<<<< HEAD
-    private javax.swing.JPanel jPanel2;
-=======
->>>>>>> 7067bd2770f44dce8b8d7614da794c95c332bd4d
     private javax.swing.JPanel jPanelHard;
     private javax.swing.JLabel live1;
     private javax.swing.JLabel live2;
