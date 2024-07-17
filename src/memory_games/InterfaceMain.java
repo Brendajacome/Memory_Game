@@ -119,15 +119,23 @@ public class InterfaceMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void easyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_easyButtonActionPerformed
+        JOptionPane.showMessageDialog(this, "Note: You have 5 seconds to see the cards once the game has started.");
         EasyMode Main = new EasyMode();
         Main.setVisible(true);
         this.setVisible(false);
+        Main.loadimageslabels();
+        Main.lifes();
+
     }//GEN-LAST:event_easyButtonActionPerformed
 
     private void hardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hardButtonActionPerformed
+        JOptionPane.showMessageDialog(this, "Note: You have 3 seconds to see the cards once the game has started.");
         HardMode Main = new HardMode();
         Main.setVisible(true);
         this.setVisible(false);
+        Main.loadimageslabels();
+        Main.lifes();
+
     }//GEN-LAST:event_hardButtonActionPerformed
 
     private void playerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playerNameActionPerformed
