@@ -196,6 +196,9 @@ public class HardMode extends javax.swing.JFrame {
 
         jDialog1 = new javax.swing.JDialog();
         jCheckBox1 = new javax.swing.JCheckBox();
+        jPanel2 = new javax.swing.JPanel();
+        play = new javax.swing.JButton();
+        players = new javax.swing.JLabel();
         jPanelHard = new javax.swing.JPanel();
         card1 = new javax.swing.JLabel();
         card2 = new javax.swing.JLabel();
@@ -213,15 +216,14 @@ public class HardMode extends javax.swing.JFrame {
         card8 = new javax.swing.JLabel();
         card7 = new javax.swing.JLabel();
         card3 = new javax.swing.JLabel();
-        play = new javax.swing.JButton();
-        backButton = new javax.swing.JButton();
         gameScore = new javax.swing.JLabel();
         numHits = new javax.swing.JLabel();
-        players = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         live1 = new javax.swing.JLabel();
         live2 = new javax.swing.JLabel();
         live3 = new javax.swing.JLabel();
+        backButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -239,7 +241,25 @@ public class HardMode extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jPanelHard.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.setMaximumSize(new java.awt.Dimension(700, 700));
+        jPanel2.setMinimumSize(new java.awt.Dimension(700, 700));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        play.setText("Start");
+        play.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playActionPerformed(evt);
+            }
+        });
+        jPanel2.add(play, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 80, -1));
+
+        players.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        players.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PLAYER´S NAME", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel2.add(players, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 220, 60));
+
+        jPanelHard.setBackground(new java.awt.Color(0, 0, 0));
+        jPanelHard.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanelHard.setForeground(new java.awt.Color(255, 255, 255));
         jPanelHard.setLayout(null);
 
         card1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -386,45 +406,22 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card3);
         card3.setBounds(201, 15, 80, 80);
 
-        getContentPane().add(jPanelHard);
-        jPanelHard.setBounds(6, 78, 390, 390);
-
-        play.setText("Start");
-        play.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                playActionPerformed(evt);
-            }
-        });
-        getContentPane().add(play);
-        play.setBounds(10, 20, 80, 23);
-
-        backButton.setText("Volver");
-        backButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(backButton);
-        backButton.setBounds(480, 460, 72, 23);
+        jPanel2.add(jPanelHard, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 390, 390));
 
         gameScore.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        gameScore.setForeground(new java.awt.Color(255, 255, 255));
         gameScore.setText("           ");
-        gameScore.setBorder(javax.swing.BorderFactory.createTitledBorder("SCORE"));
-        getContentPane().add(gameScore);
-        gameScore.setBounds(420, 10, 140, 60);
+        gameScore.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SCORE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel2.add(gameScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, 140, 60));
 
         numHits.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        numHits.setForeground(new java.awt.Color(255, 255, 255));
         numHits.setText("    ");
-        numHits.setBorder(javax.swing.BorderFactory.createTitledBorder("HITS"));
-        getContentPane().add(numHits);
-        numHits.setBounds(420, 130, 140, 90);
+        numHits.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "HITS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel2.add(numHits, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 140, 90));
 
-        players.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        players.setBorder(javax.swing.BorderFactory.createTitledBorder("PLAYER´S NAME"));
-        getContentPane().add(players);
-        players.setBounds(230, 10, 170, 50);
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("LIVES"));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "LIVES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 14), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel1.setLayout(null);
 
         live1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -454,8 +451,24 @@ public class HardMode extends javax.swing.JFrame {
         jPanel1.add(live3);
         live3.setBounds(90, 30, 35, 35);
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(420, 270, 140, 90);
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 420, 140, 90));
+
+        backButton.setText("Volver");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 600, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/others/FrameHard.jpg"))); // NOI18N
+        jLabel1.setMaximumSize(new java.awt.Dimension(700, 700));
+        jLabel1.setMinimumSize(new java.awt.Dimension(700, 700));
+        jLabel1.setPreferredSize(new java.awt.Dimension(700, 700));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 700));
+
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(0, 0, 700, 700);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -609,7 +622,9 @@ public class HardMode extends javax.swing.JFrame {
     private javax.swing.JLabel gameScore;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JDialog jDialog1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelHard;
     private javax.swing.JLabel live1;
     private javax.swing.JLabel live2;

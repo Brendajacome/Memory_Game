@@ -37,7 +37,7 @@ public class EasyMode extends javax.swing.JFrame {
 
     public EasyMode() {
         initComponents();
-        setSize(700, 700);
+        setSize(700,700);
         setLocationRelativeTo(this);
         loadingLabels();
         JLabel jlTimeBeforeFlip = new javax.swing.JLabel("");
@@ -207,6 +207,9 @@ public class EasyMode extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         StartButton = new javax.swing.JButton();
+        Score = new javax.swing.JLabel();
+        players = new javax.swing.JLabel();
+        jlhits = new javax.swing.JLabel();
         jPanel1easy = new javax.swing.JPanel();
         card1 = new javax.swing.JLabel();
         card2 = new javax.swing.JLabel();
@@ -220,19 +223,22 @@ public class EasyMode extends javax.swing.JFrame {
         card10 = new javax.swing.JLabel();
         card12 = new javax.swing.JLabel();
         card11 = new javax.swing.JLabel();
-        jlhits = new javax.swing.JLabel();
-        backButton = new javax.swing.JButton();
-        Score = new javax.swing.JLabel();
-        players = new javax.swing.JLabel();
-        jlTime = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         live1 = new javax.swing.JLabel();
         live2 = new javax.swing.JLabel();
         live3 = new javax.swing.JLabel();
+        backButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jlTime = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(700, 700));
+        setMinimumSize(new java.awt.Dimension(700, 700));
         getContentPane().setLayout(null);
 
+        jPanel1.setMaximumSize(new java.awt.Dimension(700, 700));
+        jPanel1.setMinimumSize(new java.awt.Dimension(700, 700));
+        jPanel1.setPreferredSize(new java.awt.Dimension(700, 700));
         jPanel1.setLayout(null);
 
         StartButton.setText("Start");
@@ -242,8 +248,29 @@ public class EasyMode extends javax.swing.JFrame {
             }
         });
         jPanel1.add(StartButton);
-        StartButton.setBounds(30, 30, 80, 23);
+        StartButton.setBounds(70, 90, 110, 40);
 
+        Score.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Score.setForeground(new java.awt.Color(255, 255, 255));
+        Score.setText("           ");
+        Score.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SCORE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.add(Score);
+        Score.setBounds(450, 210, 140, 60);
+
+        players.setFont(new java.awt.Font("Forte", 0, 24)); // NOI18N
+        players.setForeground(new java.awt.Color(255, 255, 255));
+        players.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PLAYER´S NAME", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.add(players);
+        players.setBounds(250, 80, 170, 60);
+
+        jlhits.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jlhits.setForeground(new java.awt.Color(255, 255, 255));
+        jlhits.setText("    ");
+        jlhits.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "HITS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.add(jlhits);
+        jlhits.setBounds(450, 290, 140, 90);
+
+        jPanel1easy.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1easy.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1easy.setLayout(null);
 
@@ -356,37 +383,10 @@ public class EasyMode extends javax.swing.JFrame {
         card11.setBounds(129, 310, 80, 80);
 
         jPanel1.add(jPanel1easy);
-        jPanel1easy.setBounds(30, 120, 350, 430);
+        jPanel1easy.setBounds(70, 200, 350, 430);
 
-        jlhits.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jlhits.setText("    ");
-        jlhits.setBorder(javax.swing.BorderFactory.createTitledBorder("HITS"));
-        jPanel1.add(jlhits);
-        jlhits.setBounds(430, 110, 140, 90);
-
-        backButton.setText("Back");
-        backButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButtonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(backButton);
-        backButton.setBounds(500, 560, 72, 23);
-
-        Score.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        Score.setText("           ");
-        Score.setBorder(javax.swing.BorderFactory.createTitledBorder("SCORE"));
-        jPanel1.add(Score);
-        Score.setBounds(430, 20, 140, 60);
-
-        players.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        players.setBorder(javax.swing.BorderFactory.createTitledBorder("PLAYER´S NAME"));
-        jPanel1.add(players);
-        players.setBounds(210, 20, 170, 60);
-        jPanel1.add(jlTime);
-        jlTime.setBounds(150, 120, 80, 30);
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("LIVES"));
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "LIVES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 14), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel2.setLayout(null);
 
         live1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -417,10 +417,29 @@ public class EasyMode extends javax.swing.JFrame {
         live3.setBounds(90, 30, 35, 35);
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(430, 260, 140, 90);
+        jPanel2.setBounds(450, 410, 140, 90);
+
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(backButton);
+        backButton.setBounds(550, 590, 72, 23);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/others/FrameEasy.jpg"))); // NOI18N
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(0, 0, 700, 700);
+        jLabel1.getAccessibleContext().setAccessibleName("");
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(20, 30, 620, 640);
+        jPanel1.setBounds(0, 0, 700, 700);
+        jPanel1.getAccessibleContext().setAccessibleName("");
+        jPanel1.getAccessibleContext().setAccessibleDescription("");
+
+        getContentPane().add(jlTime);
+        jlTime.setBounds(700, 190, 80, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -593,6 +612,7 @@ public class EasyMode extends javax.swing.JFrame {
     private javax.swing.JLabel card7;
     private javax.swing.JLabel card8;
     private javax.swing.JLabel card9;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel1easy;
     private javax.swing.JPanel jPanel2;
