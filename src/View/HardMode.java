@@ -1,47 +1,46 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package memory_games.HardMode;
+package View;
 
-import java.security.SecureRandom;
 import java.util.ArrayList;
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.Timer;
-import memory_games.GameOver.GameOver;
-import memory_games.GameWin.GameWin;
-import memory_games.InterfaceMain;
-import memory_games.cardsrandom;
+import Controller.CardsRandomHard;
+import Model.AddCardHard;
+import Model.ComparationCardsHard;
 
 public class HardMode extends javax.swing.JFrame {
 
-    ArrayList<JLabel> Labels = new ArrayList();
-    SecureRandom cardsrandom = new cardsrandom();
-    String[] picHard = new String[8];
-    String[][] hardRoute = new String[4][4];
-    int[] cards = new int[8];
-    int clickCounter = 0;
-    int score = 0;
-    int hits = 0;
-    int fail = 0;
-    int cardsFound = 0;
-    String[] comparation = new String[2];
-    int[] numCards = new int[2];
+    public ShowLabelsHard showLabelsHard;
+    public AddCardHard addCardHard;
+    public CardsRandomHard cardsRandomHard;
+    public ComparationCardsHard comparationCards;
+    public ArrayList<JLabel> Labels = new ArrayList();
+    public String[] picHard = new String[8];
+    public String[][] hardRoute = new String[4][4];
+    public int[] cards = new int[8];
+    public int clickCounter = 0;
+    public int score = 0;
+    public int hits = 0;
+    public int fail = 0;
+    public int cardsFound = 0;
+    public String[] comparation = new String[2];
+    public int[] numCards = new int[2];
 
     public HardMode() {
         initComponents();
         setSize(700, 700);
         setLocationRelativeTo(null);
         loadingLabels();
-        addcard();
+        showLabelsHard = new ShowLabelsHard(this);
+        addCardHard = new AddCardHard(this);
+        addCardHard.AddCard();
         jPanelHard.setVisible(true);
         InterfaceMain playerName = new InterfaceMain();
         players.setText(playerName.text);
+        comparationCards = new ComparationCardsHard(this);
+
+        cardsRandomHard = new CardsRandomHard();
     }
 
-    final void loadingLabels() {
+    public final void loadingLabels() {
         Labels.add(card1);
         Labels.add(card2);
         Labels.add(card3);
@@ -58,136 +57,6 @@ public class HardMode extends javax.swing.JFrame {
         Labels.add(card14);
         Labels.add(card15);
         Labels.add(card16);
-    }
-
-    public int cardImage() {
-        int cardNumber = cardsrandom.nextInt(8);
-        return cardNumber;
-    }
-
-    final void addcard() {
-        for (int pic = 0; pic < picHard.length; pic++) {
-            picHard[pic] = "/imgHard/" + (pic + 1) + ".jpg";
-        }
-    }
-
-    public void loadimageslabels() {
-        int counter = 0;
-        for (int row = 0; row < hardRoute.length; row++) {
-            for (int column = 0; column < hardRoute[0].length; column++) {
-                int temp = cardImage();
-                if (cards[temp] == 2) {
-                    column--;
-                } else {
-                    hardRoute[row][column] = picHard[temp];
-                    cards[temp]++;
-                }
-            }
-        }
-
-        for (int row = 0; row < hardRoute.length; row++) {
-            for (int column = 0; column < hardRoute[0].length; column++) {
-                Labels.get(counter).setOpaque(true);
-                Labels.get(counter).setIcon(new ImageIcon(getClass().getResource(hardRoute[row][column])));
-                Labels.get(counter).setText("" + (counter + 1));
-                counter++;
-            }
-        }
-        Timer timer = new Timer(3000, e -> flipCards());
-        timer.setRepeats(false);
-        timer.start();
-
-    }
-
-    public void lifes() {
-        ImageIcon liveIcon = new ImageIcon(getClass().getResource("/others/life.jpg"));
-        if (fail == 0) {
-            live1.setIcon(liveIcon);
-            live2.setIcon(liveIcon);
-            live3.setIcon(liveIcon);
-        }
-        if (fail == 1) {
-            live1.setVisible(false);
-            JOptionPane.showMessageDialog(null, "You have 2 lives remaining.");
-        }
-        if (fail == 2) {
-            live2.setVisible(false);
-            JOptionPane.showMessageDialog(null, "You have 1 lives remaining.");
-        }
-        if (fail == 3) {
-            live3.setVisible(false);
-            JOptionPane.showMessageDialog(null, "You have one last try.");
-        }
-        if (fail == 4) {
-            JOptionPane.showMessageDialog(null, "You lose.");
-            GameOver Main = new GameOver();
-            Main.setVisible(true);
-            this.setVisible(false);
-        }
-    }
-
-    void flipCards() {
-        ImageIcon backIcon = new ImageIcon(getClass().getResource("/others/1.jpg"));
-        for (int i = 0; i < Labels.size(); i++) {
-            Labels.get(i).setIcon(backIcon);
-        }
-    }
-
-    void showImages(int numLabel) {
-        if (clickCounter != 2) {
-            if (numLabel >= 0 && numLabel <= 3) {
-                comparation[clickCounter] = hardRoute[0][numLabel];
-                Labels.get(numLabel).setIcon(new ImageIcon(getClass().getResource(hardRoute[0][numLabel])));
-            } else if (numLabel >= 4 && numLabel <= 7) {
-                comparation[clickCounter] = hardRoute[1][numLabel - 4];
-                Labels.get(numLabel).setIcon(new ImageIcon(getClass().getResource(hardRoute[1][numLabel - 4])));
-            } else if (numLabel >= 8 && numLabel <= 11) {
-                comparation[clickCounter] = hardRoute[2][numLabel - 8];
-                Labels.get(numLabel).setIcon(new ImageIcon(getClass().getResource(hardRoute[2][numLabel - 8])));
-            } else if (numLabel >= 12 && numLabel <= 15) {
-                comparation[clickCounter] = hardRoute[3][numLabel - 12];
-                Labels.get(numLabel).setIcon(new ImageIcon(getClass().getResource(hardRoute[3][numLabel - 12])));
-            }
-            System.out.println("Click " + clickCounter + ": " + comparation[clickCounter]); // Debug print
-            numCards[clickCounter] = numLabel;
-            clickCounter++;
-        } else {
-            comparationCards();
-        }
-
-    }
-
-    void comparationCards() {
-        System.out.println("Comparing: " + comparation[0] + " and " + comparation[1]); // Debug print
-        if (comparation[1].equals(comparation[0])) {
-            JOptionPane.showMessageDialog(null, "That´s right.");
-            Labels.get(numCards[0]).setVisible(false);
-            Labels.get(numCards[1]).setVisible(false);
-            hits++;
-            numHits.setText("" + hits);
-            score = score + 100;
-            gameScore.setText("" + score);
-            cardsFound++;
-            finalGame();
-        } else {
-            flipCards();
-            fail++;
-            lifes();
-            if (score >= 50) {
-                score = score - 50;
-            }
-            gameScore.setText("" + score);
-        }
-        clickCounter = 0;
-    }
-
-    void finalGame() {
-        if (cardsFound == 8) {
-            JOptionPane.showMessageDialog(null, "You win.");
-            GameWin Main = new GameWin();
-            Main.setVisible(true);
-            this.setVisible(false);
-        }
     }
 
     @SuppressWarnings("unchecked")
@@ -249,11 +118,11 @@ public class HardMode extends javax.swing.JFrame {
         jPanel2.add(players, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 220, 60));
 
         jPanelHard.setBackground(new java.awt.Color(0, 0, 0));
-        jPanelHard.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanelHard.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanelHard.setForeground(new java.awt.Color(255, 255, 255));
         jPanelHard.setLayout(null);
 
-        card1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        card1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         card1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card1MouseClicked(evt);
@@ -262,7 +131,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card1);
         card1.setBounds(17, 15, 80, 80);
 
-        card2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        card2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         card2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card2MouseClicked(evt);
@@ -271,7 +140,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card2);
         card2.setBounds(109, 15, 80, 80);
 
-        card4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        card4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         card4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card4MouseClicked(evt);
@@ -280,7 +149,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card4);
         card4.setBounds(293, 15, 80, 80);
 
-        card5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        card5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         card5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card5MouseClicked(evt);
@@ -289,7 +158,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card5);
         card5.setBounds(17, 107, 80, 80);
 
-        card6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        card6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         card6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card6MouseClicked(evt);
@@ -298,7 +167,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card6);
         card6.setBounds(109, 107, 80, 80);
 
-        card9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        card9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         card9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card9MouseClicked(evt);
@@ -307,7 +176,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card9);
         card9.setBounds(17, 199, 80, 80);
 
-        card10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        card10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         card10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card10MouseClicked(evt);
@@ -316,7 +185,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card10);
         card10.setBounds(109, 199, 80, 80);
 
-        card11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        card11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         card11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card11MouseClicked(evt);
@@ -325,7 +194,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card11);
         card11.setBounds(201, 199, 80, 80);
 
-        card12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        card12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         card12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card12MouseClicked(evt);
@@ -334,7 +203,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card12);
         card12.setBounds(293, 199, 80, 80);
 
-        card13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        card13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         card13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card13MouseClicked(evt);
@@ -343,7 +212,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card13);
         card13.setBounds(17, 291, 80, 80);
 
-        card14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        card14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         card14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card14MouseClicked(evt);
@@ -352,7 +221,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card14);
         card14.setBounds(109, 291, 80, 80);
 
-        card16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        card16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         card16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card16MouseClicked(evt);
@@ -361,7 +230,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card16);
         card16.setBounds(293, 291, 80, 80);
 
-        card15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        card15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         card15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card15MouseClicked(evt);
@@ -370,7 +239,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card15);
         card15.setBounds(201, 291, 80, 80);
 
-        card8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        card8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         card8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card8MouseClicked(evt);
@@ -379,7 +248,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card8);
         card8.setBounds(293, 107, 80, 80);
 
-        card7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        card7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         card7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card7MouseClicked(evt);
@@ -388,7 +257,7 @@ public class HardMode extends javax.swing.JFrame {
         jPanelHard.add(card7);
         card7.setBounds(201, 107, 80, 80);
 
-        card3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        card3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         card3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 card3MouseClicked(evt);
@@ -440,104 +309,69 @@ public class HardMode extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void card1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_card1MouseClicked
-        showImages(Integer.parseInt(card1.getText()) - 1);
+        showLabelsHard.showImages(0);
 
     }//GEN-LAST:event_card1MouseClicked
 
     private void card2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_card2MouseClicked
-        showImages(Integer.parseInt(card2.getText()) - 1);
+        showLabelsHard.showImages(1);
     }//GEN-LAST:event_card2MouseClicked
 
     private void card3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_card3MouseClicked
-        showImages(Integer.parseInt(card3.getText()) - 1);
+        showLabelsHard.showImages(2);
     }//GEN-LAST:event_card3MouseClicked
 
     private void card4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_card4MouseClicked
-        showImages(Integer.parseInt(card4.getText()) - 1);
+        showLabelsHard.showImages(3);
     }//GEN-LAST:event_card4MouseClicked
 
     private void card5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_card5MouseClicked
-        showImages(Integer.parseInt(card5.getText()) - 1);
+        showLabelsHard.showImages(4);
     }//GEN-LAST:event_card5MouseClicked
 
     private void card6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_card6MouseClicked
-        showImages(Integer.parseInt(card6.getText()) - 1);
+        showLabelsHard.showImages(5);
     }//GEN-LAST:event_card6MouseClicked
 
     private void card7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_card7MouseClicked
-        showImages(Integer.parseInt(card7.getText()) - 1);
+        showLabelsHard.showImages(6);
     }//GEN-LAST:event_card7MouseClicked
 
     private void card8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_card8MouseClicked
-        showImages(Integer.parseInt(card8.getText()) - 1);
+        showLabelsHard.showImages(7);
     }//GEN-LAST:event_card8MouseClicked
 
     private void card9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_card9MouseClicked
-        showImages(Integer.parseInt(card9.getText()) - 1);
+        showLabelsHard.showImages(8);
     }//GEN-LAST:event_card9MouseClicked
 
     private void card10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_card10MouseClicked
-        showImages(Integer.parseInt(card10.getText()) - 1);
+        showLabelsHard.showImages(9);
     }//GEN-LAST:event_card10MouseClicked
 
     private void card11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_card11MouseClicked
-        showImages(Integer.parseInt(card11.getText()) - 1);
+        showLabelsHard.showImages(10);
     }//GEN-LAST:event_card11MouseClicked
 
     private void card12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_card12MouseClicked
-        showImages(Integer.parseInt(card12.getText()) - 1);
+        showLabelsHard.showImages(11);
     }//GEN-LAST:event_card12MouseClicked
 
     private void card13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_card13MouseClicked
-        showImages(Integer.parseInt(card13.getText()) - 1);
+        showLabelsHard.showImages(12);
     }//GEN-LAST:event_card13MouseClicked
 
     private void card14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_card14MouseClicked
-        showImages(Integer.parseInt(card14.getText()) - 1);
+        showLabelsHard.showImages(13);
     }//GEN-LAST:event_card14MouseClicked
 
     private void card15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_card15MouseClicked
-        showImages(Integer.parseInt(card15.getText()) - 1);
+        showLabelsHard.showImages(14);
     }//GEN-LAST:event_card15MouseClicked
 
     private void card16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_card16MouseClicked
-        showImages(Integer.parseInt(card16.getText()) - 1);
+        showLabelsHard.showImages(15);
     }//GEN-LAST:event_card16MouseClicked
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(HardMode.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(HardMode.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(HardMode.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(HardMode.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new HardMode().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel card1;
@@ -556,17 +390,17 @@ public class HardMode extends javax.swing.JFrame {
     private javax.swing.JLabel card7;
     private javax.swing.JLabel card8;
     private javax.swing.JLabel card9;
-    private javax.swing.JLabel gameScore;
+    public javax.swing.JLabel gameScore;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelHard;
-    private javax.swing.JLabel live1;
-    private javax.swing.JLabel live2;
-    private javax.swing.JLabel live3;
-    private javax.swing.JLabel numHits;
-    private javax.swing.JLabel players;
+    public javax.swing.JLabel live1;
+    public javax.swing.JLabel live2;
+    public javax.swing.JLabel live3;
+    public javax.swing.JLabel numHits;
+    public javax.swing.JLabel players;
     // End of variables declaration//GEN-END:variables
 }
