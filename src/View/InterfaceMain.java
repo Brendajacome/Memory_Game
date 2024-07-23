@@ -1,11 +1,18 @@
 package View;
 
+import Connection.Connectiondatabase;
 import javax.swing.JOptionPane;
 import Model.GameLifesEasy;
 import Model.GameLifesHard;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class InterfaceMain extends javax.swing.JFrame {
 
+    private Connectiondatabase dbConnection;
+
+    
     public InterfaceMain() {
         initComponents();
         setSize(700, 700);
@@ -13,6 +20,7 @@ public class InterfaceMain extends javax.swing.JFrame {
         easyButton.setVisible(false);
         hardButton.setVisible(false);
         textInterface.setVisible(false);
+        dbConnection = new Connectiondatabase("scores");
     }
     public static String text = "";
 
@@ -31,6 +39,7 @@ public class InterfaceMain extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 700));
+        setPreferredSize(new java.awt.Dimension(720, 730));
         getContentPane().setLayout(null);
 
         jPanel1.setMaximumSize(new java.awt.Dimension(700, 700));
@@ -136,10 +145,40 @@ public class InterfaceMain extends javax.swing.JFrame {
             easyButton.setVisible(true);
             hardButton.setVisible(true);
             textInterface.setVisible(true);
+            
+            // Guardar el nombre del jugador en la base de datos
+            savePlayerName(text);
         } else {
             easyButton.setVisible(false);
             hardButton.setVisible(false);
             JOptionPane.showMessageDialog(this, "Please, enter your name");
+        }
+    }                                            
+      private void savePlayerName(String playerName) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            // Establecer la conexión con la base de datos
+            conn = dbConnection.connect();
+
+            // Crear la sentencia SQL para insertar el nombre del jugador
+            String sql = "INSERT INTO players (player_name) VALUES (?)";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, playerName);
+
+            // Ejecutar la inserción
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error connecting to the database: " + e.getMessage());
+        } finally {
+            try {
+                if (pstmt != null) pstmt.close();
+                if (conn != null) dbConnection.disconnect();
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(this, "Error closing the database connection: " + e.getMessage());
+            }
         }
     }//GEN-LAST:event_submitButtonActionPerformed
 

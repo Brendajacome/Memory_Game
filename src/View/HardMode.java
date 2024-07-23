@@ -1,5 +1,7 @@
 package View;
 
+import Connection.ScoreManager;
+import Connection.Connectiondatabase;
 import java.util.ArrayList;
 import javax.swing.JLabel;
 import Controller.CardsRandomHard;
@@ -23,12 +25,21 @@ public class HardMode extends javax.swing.JFrame {
     public int cardsFound = 0;
     public String[] comparation = new String[2];
     public int[] numCards = new int[2];
+    public int playerId =1;
+
+    private ScoreManager scoreManager;
+    private Connectiondatabase connectiondatabase;
 
     public HardMode() {
         initComponents();
         setSize(700, 700);
         setLocationRelativeTo(null);
         loadingLabels();
+
+        // Inicializar la conexión a la base de datos y ScoreManager
+        connectiondatabase = new Connectiondatabase("scores");
+        scoreManager = new ScoreManager(connectiondatabase);
+
         showLabelsHard = new ShowLabelsHard(this);
         addCardHard = new AddCardHard(this);
         addCardHard.AddCard();
@@ -36,8 +47,17 @@ public class HardMode extends javax.swing.JFrame {
         InterfaceMain playerName = new InterfaceMain();
         players.setText(playerName.text);
         comparationCards = new ComparationCardsHard(this);
-
         cardsRandomHard = new CardsRandomHard();
+
+        updateScores();
+    }
+
+    void updateScores() {
+        int highestScore = scoreManager.getHighestScore();
+        int currentScore = scoreManager.getCurrentScore(playerId);
+
+        // Actualizar la interfaz de usuario con los puntajes obtenidos
+        Score.setText("Highest: " + highestScore + " Current: " + currentScore);
     }
 
     public final void loadingLabels() {
@@ -84,7 +104,7 @@ public class HardMode extends javax.swing.JFrame {
         card8 = new javax.swing.JLabel();
         card7 = new javax.swing.JLabel();
         card3 = new javax.swing.JLabel();
-        gameScore = new javax.swing.JLabel();
+        Score = new javax.swing.JLabel();
         numHits = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         live1 = new javax.swing.JLabel();
@@ -106,6 +126,7 @@ public class HardMode extends javax.swing.JFrame {
         jCheckBox1.setText("jCheckBox1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(720, 730));
         getContentPane().setLayout(null);
 
         jPanel2.setMaximumSize(new java.awt.Dimension(700, 700));
@@ -268,11 +289,11 @@ public class HardMode extends javax.swing.JFrame {
 
         jPanel2.add(jPanelHard, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 390, 390));
 
-        gameScore.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        gameScore.setForeground(new java.awt.Color(255, 255, 255));
-        gameScore.setText("           ");
-        gameScore.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SCORE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 14), new java.awt.Color(255, 255, 255))); // NOI18N
-        jPanel2.add(gameScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, 140, 60));
+        Score.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Score.setForeground(new java.awt.Color(255, 255, 255));
+        Score.setText("           ");
+        Score.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SCORE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel2.add(Score, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, 140, 60));
 
         numHits.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         numHits.setForeground(new java.awt.Color(255, 255, 255));
@@ -374,6 +395,7 @@ public class HardMode extends javax.swing.JFrame {
     }//GEN-LAST:event_card16MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JLabel Score;
     private javax.swing.JLabel card1;
     private javax.swing.JLabel card10;
     private javax.swing.JLabel card11;
@@ -390,7 +412,6 @@ public class HardMode extends javax.swing.JFrame {
     private javax.swing.JLabel card7;
     private javax.swing.JLabel card8;
     private javax.swing.JLabel card9;
-    public javax.swing.JLabel gameScore;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;

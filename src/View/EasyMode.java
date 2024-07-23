@@ -1,12 +1,16 @@
 package View;
 
+import Connection.ScoreManager;
+import Connection.Connectiondatabase;
 import java.util.ArrayList;
 import javax.swing.JLabel;
 import Controller.CardsRandomEasy;
 import Model.AddCardEasy;
 import Model.ComparationCardsEasy;
+import javax.swing.JPanel;
 
 public class EasyMode extends javax.swing.JFrame {
+
     public ShowLabelsEasy showlabelsEasy;
     public AddCardEasy addCardEasy;
     public CardsRandomEasy cardsRandomEasy;
@@ -22,22 +26,42 @@ public class EasyMode extends javax.swing.JFrame {
     public int failures = 0;
     public int score = 0;
     public int cardsFound = 0;
+    public int playerId=1;
+    private ScoreManager scoreManager;
+    private Connectiondatabase connectiondatabase;
+    
 
     public EasyMode() {
         initComponents();
         setSize(700, 700);
         setLocationRelativeTo(null);
         loadingLabels();
+        // Inicializar la conexión a la base de datos y ScoreManager
+        connectiondatabase = new Connectiondatabase("scores");
+        scoreManager = new ScoreManager(connectiondatabase);
+
         JLabel jlTimeBeforeFlip = new javax.swing.JLabel("");
         jPanel1.add(jlTimeBeforeFlip);
+
         addCardEasy = new AddCardEasy(this);
         showlabelsEasy = new ShowLabelsEasy(this);
         addCardEasy.AddCard();
         jPanel1easy.setVisible(true);
+
         InterfaceMain playerName = new InterfaceMain();
         players.setText(playerName.text);
+
         comparationCards = new ComparationCardsEasy(this);
         cardsRandomEasy = new CardsRandomEasy();
+        updateScores();
+    }
+
+    void updateScores() {
+        int highestScore = scoreManager.getHighestScore();
+        int currentScore = scoreManager.getCurrentScore(playerId);
+
+        // Actualizar la interfaz de usuario con los puntajes obtenidos
+        Score.setText("Highest: " + highestScore + " Current: " + currentScore);
     }
 
     public final void loadingLabels() {
@@ -85,6 +109,7 @@ public class EasyMode extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 700));
+        setPreferredSize(new java.awt.Dimension(720, 730));
         getContentPane().setLayout(null);
 
         jPanel1.setMaximumSize(new java.awt.Dimension(700, 700));
