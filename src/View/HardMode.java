@@ -37,7 +37,7 @@ public class HardMode extends javax.swing.JFrame {
         loadingLabels();
 
         // Inicializar la conexión a la base de datos y ScoreManager
-        connectiondatabase = new Connectiondatabase("scores");
+        connectiondatabase = new Connectiondatabase("bg6cfvuhda9jpnz3solz");
         scoreManager = new ScoreManager(connectiondatabase);
 
         showLabelsHard = new ShowLabelsHard(this);

@@ -13,7 +13,7 @@ public class GameWinHard {
 
     public GameWinHard(HardMode hardMode) {
         this.hardMode = hardMode;
-        this.connectiondatabase = new Connectiondatabase("scores");
+        this.connectiondatabase = new Connectiondatabase("bg6cfvuhda9jpnz3solz");
         this.scoreManager = new ScoreManager(connectiondatabase);
     }
 

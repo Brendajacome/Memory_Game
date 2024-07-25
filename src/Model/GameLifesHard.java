@@ -14,7 +14,7 @@ public class GameLifesHard {
 
     public GameLifesHard(HardMode hardMode) {
         this.hardMode = hardMode;
-        this.scoreManager = new ScoreManager(new Connectiondatabase("scores"));
+        this.scoreManager = new ScoreManager(new Connectiondatabase("bg6cfvuhda9jpnz3solz"));
     }
 
     public void lifes() {

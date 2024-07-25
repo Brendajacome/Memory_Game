@@ -27,6 +27,7 @@ public class EasyMode extends javax.swing.JFrame {
     public int score = 0;
     public int cardsFound = 0;
     public int playerId=1;
+    
     private ScoreManager scoreManager;
     private Connectiondatabase connectiondatabase;
     
@@ -36,8 +37,9 @@ public class EasyMode extends javax.swing.JFrame {
         setSize(700, 700);
         setLocationRelativeTo(null);
         loadingLabels();
+        
         // Inicializar la conexión a la base de datos y ScoreManager
-        connectiondatabase = new Connectiondatabase("scores");
+        connectiondatabase = new Connectiondatabase("bg6cfvuhda9jpnz3solz");
         scoreManager = new ScoreManager(connectiondatabase);
 
         JLabel jlTimeBeforeFlip = new javax.swing.JLabel("");
