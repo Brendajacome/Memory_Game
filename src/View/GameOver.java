@@ -1,12 +1,18 @@
 package View;
 
+import Connection.ScoreManager;
+
 public class GameOver extends javax.swing.JFrame {
 
+    
+
     public GameOver() {
+       
         initComponents();
         setSize(700, 700);
-        setLocationRelativeTo(this);
+        setLocationRelativeTo(null);
     }
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -52,9 +58,12 @@ public class GameOver extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ScoreButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ScoreButtonActionPerformed
-        LeaderBoard Main = new LeaderBoard();
+ 
+       LeaderBoard Main = new LeaderBoard();
         Main.setVisible(true);
         this.setVisible(false);
+
+        
     }//GEN-LAST:event_ScoreButtonActionPerformed
 
 

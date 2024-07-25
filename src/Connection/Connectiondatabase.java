@@ -1,4 +1,7 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package Connection;
 
 import java.sql.Connection;
@@ -18,7 +21,10 @@ public class Connectiondatabase {
 
     public Connectiondatabase(String bd) {
         this.bd = bd;
+        this.url = "jdbc:mysql://bg6cfvuhda9jpnz3solz-mysql.services.clever-cloud.com:3306/" + bd;
     }
+
+   
 
     public Connection connect() {
         try {
@@ -47,3 +53,4 @@ public class Connectiondatabase {
         conexion.connect();
     }
 }
+

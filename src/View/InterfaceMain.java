@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class InterfaceMain extends javax.swing.JFrame {
 
-   private Connectiondatabase dbConnection;
+    private Connectiondatabase dbConnection;
 
     
     public InterfaceMain() {
@@ -39,6 +39,7 @@ public class InterfaceMain extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 700));
+        setPreferredSize(new java.awt.Dimension(720, 730));
         getContentPane().setLayout(null);
 
         jPanel1.setMaximumSize(new java.awt.Dimension(700, 700));
@@ -100,7 +101,6 @@ public class InterfaceMain extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/others/MEMORY GAME.jpg"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 700));
-        jLabel2.getAccessibleContext().setAccessibleParent(this);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 700, 700);

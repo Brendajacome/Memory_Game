@@ -2,6 +2,7 @@ package View;
 
 public class GameWin extends javax.swing.JFrame {
 
+
     public GameWin() {
         initComponents();
         setSize(700, 700);
@@ -40,7 +41,7 @@ public class GameWin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ScoreButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ScoreButtonActionPerformed
-        LeaderBoard Main = new LeaderBoard();
+       LeaderBoard Main = new LeaderBoard();
         Main.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_ScoreButtonActionPerformed
