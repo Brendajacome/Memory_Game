@@ -24,16 +24,12 @@ Requeriments
 Functionals
 
 * LetteQuick response reaction when interacting with the cards.
-The graphical interface should be simple and easy to understand.
-The code should follow best practices such as Clean Code.
-The program should be maintainable over time.
-The system should be modifiable for possible future enhancements.r comparison management
-* Life control
-* Graphical interface
-* Database integration
-* User interaction
+* Life control.
+* Graphical interface.
+* Database integration.
+* User interaction.
 * The program must be able to open in an Apache NetBeans java environment.
-* Must use Apache Ant for the construction of the project
+* Must use Apache Ant for the construction of the project.
 
 Non functionals
 
