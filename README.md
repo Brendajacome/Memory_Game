@@ -37,15 +37,6 @@ Lives system:
 Each player has 3 lives. If you miss a pair, you lose a life.
 
 ---
-System Requirements
----
-Java JDK 8
-
-Apache Ant
-
-NetBeans 
-
----
 Use
 ---
 1.When you start the game, you will be prompted to enter your name.
@@ -62,8 +53,26 @@ Each pair found awards 100 points.
 5.If you miss a pair, 50 points are deducted, you will lose a life. You have a total of 3 lives and 4 attempts.
 
 6.The game ends when you find all the pairs or lose all your lives.
+
 ---
-Game Captures
+Note: 
+---
+For the presented program to work you must have JDK 17 AND JRE 1.8 installed.
+
+Link JDK 17
+
+Remember to install the version compatible with your system
+
+https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html
+
+Link JRE
+
+Remember to install the version compatible with your system
+
+https://www.java.com/es/download/manual.jsp
+
+---
+Pre-game images 
 ---
 Main Menu
 ---
