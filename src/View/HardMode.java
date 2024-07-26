@@ -10,6 +10,8 @@ import Model.ComparationCardsHard;
 
 public class HardMode extends javax.swing.JFrame {
 
+    int highestScore;
+    int currentScore;
     public ShowLabelsHard showLabelsHard;
     public AddCardHard addCardHard;
     public CardsRandomHard cardsRandomHard;
@@ -25,7 +27,7 @@ public class HardMode extends javax.swing.JFrame {
     public int cardsFound = 0;
     public String[] comparation = new String[2];
     public int[] numCards = new int[2];
-    public int playerId =1;
+    public int playerId = 1;
 
     private ScoreManager scoreManager;
     private Connectiondatabase connectiondatabase;
@@ -36,7 +38,7 @@ public class HardMode extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         loadingLabels();
 
-       connectiondatabase = new Connectiondatabase("scores");
+        connectiondatabase = new Connectiondatabase("scores");
         scoreManager = new ScoreManager(connectiondatabase);
 
         showLabelsHard = new ShowLabelsHard(this);
@@ -53,11 +55,11 @@ public class HardMode extends javax.swing.JFrame {
     }
 
     void updateScores() {
-        int highestScore = scoreManager.getHighestScore();
-        int currentScore = scoreManager.getCurrentScore(playerId);
+        highestScore = scoreManager.getHighestScore();
+        currentScore = scoreManager.getCurrentScore(playerId);
 
-        recordscore.setText(""+ currentScore );
-        Score.setText(" Current:" + highestScore);
+        recordscore.setText(" " + currentScore);
+        Score.setText(" " + highestScore);
     }
 
     public final void loadingLabels() {
@@ -320,7 +322,6 @@ public class HardMode extends javax.swing.JFrame {
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 420, 140, 90));
 
-        Recordscore.setText("jLabel2");
         Recordscore.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "RECORD SCORE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel2.add(Recordscore, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 190, 60));
 

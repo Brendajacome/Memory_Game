@@ -1,15 +1,21 @@
 package View;
 
 public class LeaderBoard extends javax.swing.JFrame {
-
+    EasyMode easyMode;
+    InterfaceMain playerName;
+    HardMode hardMode;
     public LeaderBoard() {
+        playerName= new InterfaceMain();
+        easyMode = new EasyMode();
+        hardMode = new HardMode();
         initComponents();
         setSize(700, 700);
         setLocationRelativeTo(null);
+        HighScores.setText(" " + easyMode.highestScore);
+        currentPlayer.setText(playerName.text);
+        currentScore.setText("" + easyMode.score);
+        currentScore.setText("" + hardMode.score);
     }
-
-    
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -17,9 +23,9 @@ public class LeaderBoard extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         BackMenu = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        currentScore = new javax.swing.JLabel();
         HighScores = new javax.swing.JLabel();
-        JLabel = new javax.swing.JLabel();
+        currentPlayer = new javax.swing.JLabel();
         FinalScaore = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -38,19 +44,19 @@ public class LeaderBoard extends javax.swing.JFrame {
         });
         jPanel1.add(BackMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 600, 150, 50));
 
-        jLabel2.setFont(new java.awt.Font("Forte", 0, 24)); // NOI18N
-        jLabel2.setText("jLabel3");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 430, 300, 30));
+        currentScore.setFont(new java.awt.Font("Forte", 0, 24)); // NOI18N
+        currentScore.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Current Score", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 18))); // NOI18N
+        jPanel1.add(currentScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 430, 300, 40));
 
         HighScores.setBackground(new java.awt.Color(0, 0, 0));
         HighScores.setFont(new java.awt.Font("Forte", 0, 24)); // NOI18N
-        HighScores.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Scores", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 18))); // NOI18N
+        HighScores.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "High Score", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 18))); // NOI18N
         jPanel1.add(HighScores, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 290, 60));
 
-        JLabel.setBackground(new java.awt.Color(102, 255, 204));
-        JLabel.setFont(new java.awt.Font("Forte", 0, 24)); // NOI18N
-        JLabel.setText("jLabel2");
-        jPanel1.add(JLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 290, 40));
+        currentPlayer.setBackground(new java.awt.Color(102, 255, 204));
+        currentPlayer.setFont(new java.awt.Font("Forte", 0, 24)); // NOI18N
+        currentPlayer.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Current Player", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 18))); // NOI18N
+        jPanel1.add(currentPlayer, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 290, 50));
 
         FinalScaore.setIcon(new javax.swing.ImageIcon(getClass().getResource("/others/Score.jpg"))); // NOI18N
         jPanel1.add(FinalScaore, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 700));
@@ -85,8 +91,8 @@ public class LeaderBoard extends javax.swing.JFrame {
     private javax.swing.JButton BackMenu;
     private javax.swing.JLabel FinalScaore;
     private javax.swing.JLabel HighScores;
-    private javax.swing.JLabel JLabel;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel currentPlayer;
+    private javax.swing.JLabel currentScore;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

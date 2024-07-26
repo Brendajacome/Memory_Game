@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Connection;
 
 import java.sql.Connection;
@@ -15,14 +11,13 @@ public class Connectiondatabase {
     String bd = "scores";
     String driver = "com.mysql.cj.jdbc.Driver";
     String user = "root";
-    String pass = "Bb1605***";
+    String pass = "Elian.xd_1597";
     String url = "jdbc:mysql://localhost:3306/";
     Connection link;
 
     public Connectiondatabase(String bd) {
-        this.bd=bd;
+        this.bd = bd;
     }
-
 
     public Connection connect() {
         try {
@@ -30,24 +25,24 @@ public class Connectiondatabase {
             link = DriverManager.getConnection(url + bd, user, pass);
             System.err.println("CONNECTION A DB " + bd);
         } catch (ClassNotFoundException | SQLException ex) {
-             System.err.println("NO CONNECTION A DB " + bd);
+            System.err.println("NO CONNECTION A DB " + bd);
             Logger.getLogger(Connectiondatabase.class.getName()).log(Level.SEVERE, null, ex);
 
         }
         return link;
     }
 
-    public  void disconnect()  {
+    public void disconnect() {
         try {
             link.close();
         } catch (SQLException ex) {
             Logger.getLogger(Connectiondatabase.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     public static void main(String[] args) {
-        Connectiondatabase conexion =new Connectiondatabase("scores");
+        Connectiondatabase conexion = new Connectiondatabase("scores");
         conexion.connect();
     }
 
 }
-

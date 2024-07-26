@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 
 public class EasyMode extends javax.swing.JFrame {
 
+    int highestScore;
+    int currentScore;
     public ShowLabelsEasy showlabelsEasy;
     public AddCardEasy addCardEasy;
     public CardsRandomEasy cardsRandomEasy;
@@ -26,22 +28,20 @@ public class EasyMode extends javax.swing.JFrame {
     public int failures = 0;
     public int score = 0;
     public int cardsFound = 0;
-    public int playerId=1;
+    public int playerId = 1;
     private ScoreManager scoreManager;
     private Connectiondatabase connectiondatabase;
-    
 
     public EasyMode() {
-       initComponents();
+        initComponents();
         setSize(700, 700);
         setLocationRelativeTo(null);
         loadingLabels();
         connectiondatabase = new Connectiondatabase("scores");
         scoreManager = new ScoreManager(connectiondatabase);
-        
+
         JLabel jlTimeBeforeFlip = new javax.swing.JLabel("");
         jPanel1.add(jlTimeBeforeFlip);
-
 
         addCardEasy = new AddCardEasy(this);
         showlabelsEasy = new ShowLabelsEasy(this);
@@ -57,11 +57,11 @@ public class EasyMode extends javax.swing.JFrame {
     }
 
     void updateScores() {
-        int highestScore = scoreManager.getHighestScore();
-        int currentScore = scoreManager.getCurrentScore(playerId);
+        highestScore = scoreManager.getHighestScore();
+        currentScore = scoreManager.getCurrentScore(playerId);
 
-        recordscore.setText(""+ currentScore );
-        Score.setText(" Current:" + highestScore);
+        recordscore.setText("" + currentScore);
+        Score.setText(" " + highestScore);
     }
 
     public final void loadingLabels() {
@@ -274,7 +274,6 @@ public class EasyMode extends javax.swing.JFrame {
 
         Score.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         Score.setForeground(new java.awt.Color(255, 255, 255));
-        Score.setText("           ");
         Score.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "RECORD SCORE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 14), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel1.add(Score);
         Score.setBounds(450, 110, 150, 70);

@@ -7,6 +7,7 @@ import Connection.ScoreManager;
 import Connection.Connectiondatabase;
 
 public class GameWinHard {
+
     HardMode hardMode;
     ScoreManager scoreManager;
     Connectiondatabase connectiondatabase;
@@ -18,11 +19,12 @@ public class GameWinHard {
     }
 
     public void GameWin() {
-         if (hardMode.cardsFound == 8) {
+        if (hardMode.cardsFound == 8) {
             scoreManager.addScore(hardMode.playerId, hardMode.score);
             JOptionPane.showMessageDialog(null, "You win.");
             GameWin Main = new GameWin();
             Main.setVisible(true);
+            hardMode.setVisible(false);
         }
     }
 }
