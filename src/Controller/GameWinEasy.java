@@ -13,13 +13,13 @@ public class GameWinEasy {
 
     public GameWinEasy(EasyMode easyMode) {
         this.easyMode = easyMode;
-        this.connectiondatabase = new Connectiondatabase("bg6cfvuhda9jpnz3solz");
+        this.connectiondatabase = new Connectiondatabase("scores");
         this.scoreManager = new ScoreManager(connectiondatabase);
     }
 
-    public void GameWin() {
+   public void GameWin() {
         if (easyMode.cardsFound == 6) {
-            // Guardar el puntaje del jugador en la base de datos
+            
             scoreManager.addScore(easyMode.playerId, easyMode.score);
             JOptionPane.showMessageDialog(null, "You win.");
             GameWin Main = new GameWin();
@@ -27,4 +27,5 @@ public class GameWinEasy {
             easyMode.setVisible(false);
         }
     }
+
 }

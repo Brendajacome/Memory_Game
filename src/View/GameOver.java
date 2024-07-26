@@ -1,6 +1,6 @@
 package View;
 
-import Connection.ScoreManager;
+
 
 public class GameOver extends javax.swing.JFrame {
 

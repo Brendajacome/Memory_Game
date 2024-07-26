@@ -1,22 +1,14 @@
-
-
-
 package View;
-
 
 public class LeaderBoard extends javax.swing.JFrame {
 
-    // Constructor
-    public LeaderBoard(String currentUser) {
+    public LeaderBoard() {
         initComponents();
         setSize(700, 700);
         setLocationRelativeTo(null);
-      
     }
 
-    LeaderBoard() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 
 
     @SuppressWarnings("unchecked")

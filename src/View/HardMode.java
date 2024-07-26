@@ -36,8 +36,7 @@ public class HardMode extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         loadingLabels();
 
-        // Inicializar la conexión a la base de datos y ScoreManager
-        connectiondatabase = new Connectiondatabase("bg6cfvuhda9jpnz3solz");
+       connectiondatabase = new Connectiondatabase("scores");
         scoreManager = new ScoreManager(connectiondatabase);
 
         showLabelsHard = new ShowLabelsHard(this);
@@ -47,6 +46,7 @@ public class HardMode extends javax.swing.JFrame {
         InterfaceMain playerName = new InterfaceMain();
         players.setText(playerName.text);
         comparationCards = new ComparationCardsHard(this);
+
         cardsRandomHard = new CardsRandomHard();
 
         updateScores();
@@ -56,8 +56,8 @@ public class HardMode extends javax.swing.JFrame {
         int highestScore = scoreManager.getHighestScore();
         int currentScore = scoreManager.getCurrentScore(playerId);
 
-        // Actualizar la interfaz de usuario con los puntajes obtenidos
-        Score.setText("Highest: " + highestScore + " Current: " + currentScore);
+        recordscore.setText(""+ currentScore );
+        Score.setText(" Current:" + highestScore);
     }
 
     public final void loadingLabels() {
@@ -110,7 +110,8 @@ public class HardMode extends javax.swing.JFrame {
         live1 = new javax.swing.JLabel();
         live2 = new javax.swing.JLabel();
         live3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        Recordscore = new javax.swing.JLabel();
+        recordscore = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -126,7 +127,6 @@ public class HardMode extends javax.swing.JFrame {
         jCheckBox1.setText("jCheckBox1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(720, 730));
         getContentPane().setLayout(null);
 
         jPanel2.setMaximumSize(new java.awt.Dimension(700, 700));
@@ -136,7 +136,7 @@ public class HardMode extends javax.swing.JFrame {
         players.setFont(new java.awt.Font("Forte", 0, 24)); // NOI18N
         players.setForeground(new java.awt.Color(255, 255, 255));
         players.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PLAYER´S NAME", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 14), new java.awt.Color(255, 255, 255))); // NOI18N
-        jPanel2.add(players, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 220, 60));
+        jPanel2.add(players, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 250, 70));
 
         jPanelHard.setBackground(new java.awt.Color(0, 0, 0));
         jPanelHard.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -320,8 +320,12 @@ public class HardMode extends javax.swing.JFrame {
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 420, 140, 90));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/others/FrameHard.jpg"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 700));
+        Recordscore.setText("jLabel2");
+        Recordscore.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "RECORD SCORE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel2.add(Recordscore, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 190, 60));
+
+        recordscore.setIcon(new javax.swing.ImageIcon(getClass().getResource("/others/FrameHard.jpg"))); // NOI18N
+        jPanel2.add(recordscore, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 700));
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(0, 0, 700, 700);
@@ -395,6 +399,7 @@ public class HardMode extends javax.swing.JFrame {
     }//GEN-LAST:event_card16MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Recordscore;
     public javax.swing.JLabel Score;
     private javax.swing.JLabel card1;
     private javax.swing.JLabel card10;
@@ -414,7 +419,6 @@ public class HardMode extends javax.swing.JFrame {
     private javax.swing.JLabel card9;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JDialog jDialog1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelHard;
@@ -423,5 +427,6 @@ public class HardMode extends javax.swing.JFrame {
     public javax.swing.JLabel live3;
     public javax.swing.JLabel numHits;
     public javax.swing.JLabel players;
+    private javax.swing.JLabel recordscore;
     // End of variables declaration//GEN-END:variables
 }

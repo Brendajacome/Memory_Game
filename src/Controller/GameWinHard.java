@@ -13,18 +13,16 @@ public class GameWinHard {
 
     public GameWinHard(HardMode hardMode) {
         this.hardMode = hardMode;
-        this.connectiondatabase = new Connectiondatabase("bg6cfvuhda9jpnz3solz");
+        this.connectiondatabase = new Connectiondatabase("scores");
         this.scoreManager = new ScoreManager(connectiondatabase);
     }
 
     public void GameWin() {
-        if (hardMode.cardsFound == 8) {
-            // Guardar el puntaje del jugador en la base de datos
+         if (hardMode.cardsFound == 8) {
             scoreManager.addScore(hardMode.playerId, hardMode.score);
             JOptionPane.showMessageDialog(null, "You win.");
             GameWin Main = new GameWin();
             Main.setVisible(true);
-            hardMode.setVisible(false);
         }
     }
 }

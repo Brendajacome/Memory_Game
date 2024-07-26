@@ -8,7 +8,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ScoreManager {
-    
 
     private Connectiondatabase connectiondatabase;
 
@@ -26,7 +25,6 @@ public class ScoreManager {
 
             if (rs.next()) {
                 highestScore = rs.getInt("highest_score");
-                
             }
 
         } catch (SQLException ex) {

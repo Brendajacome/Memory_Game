@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 public class EasyMode extends javax.swing.JFrame {
 
-     public ShowLabelsEasy showlabelsEasy;
+    public ShowLabelsEasy showlabelsEasy;
     public AddCardEasy addCardEasy;
     public CardsRandomEasy cardsRandomEasy;
     public ComparationCardsEasy comparationCards;
@@ -32,16 +32,16 @@ public class EasyMode extends javax.swing.JFrame {
     
 
     public EasyMode() {
-        initComponents();
+       initComponents();
         setSize(700, 700);
         setLocationRelativeTo(null);
         loadingLabels();
-        // Inicializar la conexión a la base de datos y ScoreManager
-        connectiondatabase = new Connectiondatabase("bg6cfvuhda9jpnz3solz");
+        connectiondatabase = new Connectiondatabase("scores");
         scoreManager = new ScoreManager(connectiondatabase);
-
+        
         JLabel jlTimeBeforeFlip = new javax.swing.JLabel("");
         jPanel1.add(jlTimeBeforeFlip);
+
 
         addCardEasy = new AddCardEasy(this);
         showlabelsEasy = new ShowLabelsEasy(this);
@@ -60,7 +60,6 @@ public class EasyMode extends javax.swing.JFrame {
         int highestScore = scoreManager.getHighestScore();
         int currentScore = scoreManager.getCurrentScore(playerId);
 
-        // Actualizar la interfaz de usuario con los puntajes obtenidos
         recordscore.setText(""+ currentScore );
         Score.setText(" Current:" + highestScore);
     }
