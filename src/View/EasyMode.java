@@ -60,8 +60,8 @@ public class EasyMode extends javax.swing.JFrame {
         highestScore = scoreManager.getHighestScore();
         currentScore = scoreManager.getCurrentScore(playerId);
 
-        recordscore.setText("" + currentScore);
-        Score.setText(" " + highestScore);
+        scoreCurrent.setText("" + currentScore);
+        scoreRecord.setText(" " + highestScore);
     }
 
     public final void loadingLabels() {
@@ -84,7 +84,7 @@ public class EasyMode extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        recordscore = new javax.swing.JLabel();
+        scoreCurrent = new javax.swing.JLabel();
         players = new javax.swing.JLabel();
         jlhits = new javax.swing.JLabel();
         jPanel1easy = new javax.swing.JPanel();
@@ -104,7 +104,7 @@ public class EasyMode extends javax.swing.JFrame {
         live1 = new javax.swing.JLabel();
         live2 = new javax.swing.JLabel();
         live3 = new javax.swing.JLabel();
-        Score = new javax.swing.JLabel();
+        scoreRecord = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         Score2 = new javax.swing.JLabel();
         jlTime = new javax.swing.JLabel();
@@ -118,12 +118,12 @@ public class EasyMode extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(700, 700));
         jPanel1.setLayout(null);
 
-        recordscore.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        recordscore.setForeground(new java.awt.Color(255, 255, 255));
-        recordscore.setText("           ");
-        recordscore.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SCORE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 14), new java.awt.Color(255, 255, 255))); // NOI18N
-        jPanel1.add(recordscore);
-        recordscore.setBounds(450, 210, 150, 60);
+        scoreCurrent.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        scoreCurrent.setForeground(new java.awt.Color(255, 255, 255));
+        scoreCurrent.setText("           ");
+        scoreCurrent.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SCORE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.add(scoreCurrent);
+        scoreCurrent.setBounds(450, 190, 150, 60);
 
         players.setFont(new java.awt.Font("Forte", 0, 24)); // NOI18N
         players.setForeground(new java.awt.Color(255, 255, 255));
@@ -272,11 +272,11 @@ public class EasyMode extends javax.swing.JFrame {
         jPanel1.add(jPanel2);
         jPanel2.setBounds(450, 410, 140, 90);
 
-        Score.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        Score.setForeground(new java.awt.Color(255, 255, 255));
-        Score.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "RECORD SCORE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 14), new java.awt.Color(255, 255, 255))); // NOI18N
-        jPanel1.add(Score);
-        Score.setBounds(450, 110, 150, 70);
+        scoreRecord.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        scoreRecord.setForeground(new java.awt.Color(255, 255, 255));
+        scoreRecord.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "RECORD SCORE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.add(scoreRecord);
+        scoreRecord.setBounds(450, 80, 150, 70);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/others/FrameEasy.jpg"))); // NOI18N
         jPanel1.add(jLabel1);
@@ -375,7 +375,6 @@ public class EasyMode extends javax.swing.JFrame {
     }//GEN-LAST:event_card1MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JLabel Score;
     public javax.swing.JLabel Score2;
     public javax.swing.JLabel card1;
     public javax.swing.JLabel card10;
@@ -399,7 +398,8 @@ public class EasyMode extends javax.swing.JFrame {
     public javax.swing.JLabel live2;
     public javax.swing.JLabel live3;
     public javax.swing.JLabel players;
-    public javax.swing.JLabel recordscore;
+    public javax.swing.JLabel scoreCurrent;
+    public javax.swing.JLabel scoreRecord;
     // End of variables declaration//GEN-END:variables
 
 }

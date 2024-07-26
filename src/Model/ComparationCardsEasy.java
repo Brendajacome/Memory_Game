@@ -25,7 +25,7 @@ public class ComparationCardsEasy {
             easyMode.Hits++;
             easyMode.jlhits.setText("" + easyMode.Hits);
             easyMode.score = easyMode.score + 100;
-            easyMode.recordscore.setText("" + easyMode.score);
+            easyMode.scoreCurrent.setText("" + easyMode.score);
             easyMode.cardsFound++;
             gameWinEasy.GameWin();
         } else {
@@ -36,7 +36,7 @@ public class ComparationCardsEasy {
             if (easyMode.score >= 50) {
                 easyMode.score = easyMode.score - 50;
             }
-            easyMode.recordscore.setText("" + easyMode.score);
+            easyMode.scoreCurrent.setText("" + easyMode.score);
         }
         easyMode.Quantityclick = 0;
     }

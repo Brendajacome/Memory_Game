@@ -31,7 +31,6 @@ public class GameLifesHard {
         if (hardMode.fail == 2) {
             hardMode.live2.setVisible(false);
             JOptionPane.showMessageDialog(null, "You have 1 lives remaining.");
-            JOptionPane.showMessageDialog(null, "You have 1 life remaining.");
         }
         if (hardMode.fail == 3) {
             hardMode.live3.setVisible(false);

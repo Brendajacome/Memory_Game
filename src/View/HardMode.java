@@ -10,6 +10,7 @@ import Model.ComparationCardsHard;
 
 public class HardMode extends javax.swing.JFrame {
 
+    public String finalScore;
     int highestScore;
     int currentScore;
     public ShowLabelsHard showLabelsHard;
@@ -50,7 +51,6 @@ public class HardMode extends javax.swing.JFrame {
         comparationCards = new ComparationCardsHard(this);
 
         cardsRandomHard = new CardsRandomHard();
-
         updateScores();
     }
 
@@ -58,8 +58,8 @@ public class HardMode extends javax.swing.JFrame {
         highestScore = scoreManager.getHighestScore();
         currentScore = scoreManager.getCurrentScore(playerId);
 
-        recordscore.setText(" " + currentScore);
-        Score.setText(" " + highestScore);
+        recordScore.setText(" " + highestScore);
+        scoreGame.setText(" " + currentScore);
     }
 
     public final void loadingLabels() {
@@ -106,13 +106,13 @@ public class HardMode extends javax.swing.JFrame {
         card8 = new javax.swing.JLabel();
         card7 = new javax.swing.JLabel();
         card3 = new javax.swing.JLabel();
-        Score = new javax.swing.JLabel();
+        scoreGame = new javax.swing.JLabel();
         numHits = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         live1 = new javax.swing.JLabel();
         live2 = new javax.swing.JLabel();
         live3 = new javax.swing.JLabel();
-        Recordscore = new javax.swing.JLabel();
+        recordScore = new javax.swing.JLabel();
         recordscore = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
@@ -291,11 +291,11 @@ public class HardMode extends javax.swing.JFrame {
 
         jPanel2.add(jPanelHard, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 390, 390));
 
-        Score.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        Score.setForeground(new java.awt.Color(255, 255, 255));
-        Score.setText("           ");
-        Score.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SCORE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 14), new java.awt.Color(255, 255, 255))); // NOI18N
-        jPanel2.add(Score, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, 140, 60));
+        scoreGame.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        scoreGame.setForeground(new java.awt.Color(255, 255, 255));
+        scoreGame.setText("           ");
+        scoreGame.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SCORE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel2.add(scoreGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, 140, 60));
 
         numHits.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         numHits.setForeground(new java.awt.Color(255, 255, 255));
@@ -322,8 +322,10 @@ public class HardMode extends javax.swing.JFrame {
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 420, 140, 90));
 
-        Recordscore.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "RECORD SCORE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
-        jPanel2.add(Recordscore, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 190, 60));
+        recordScore.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        recordScore.setForeground(new java.awt.Color(255, 255, 255));
+        recordScore.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "RECORD SCORE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel2.add(recordScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 190, 60));
 
         recordscore.setIcon(new javax.swing.ImageIcon(getClass().getResource("/others/FrameHard.jpg"))); // NOI18N
         jPanel2.add(recordscore, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 700));
@@ -400,8 +402,6 @@ public class HardMode extends javax.swing.JFrame {
     }//GEN-LAST:event_card16MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Recordscore;
-    public javax.swing.JLabel Score;
     private javax.swing.JLabel card1;
     private javax.swing.JLabel card10;
     private javax.swing.JLabel card11;
@@ -428,6 +428,8 @@ public class HardMode extends javax.swing.JFrame {
     public javax.swing.JLabel live3;
     public javax.swing.JLabel numHits;
     public javax.swing.JLabel players;
+    private javax.swing.JLabel recordScore;
     private javax.swing.JLabel recordscore;
+    public javax.swing.JLabel scoreGame;
     // End of variables declaration//GEN-END:variables
 }

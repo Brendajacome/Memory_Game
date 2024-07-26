@@ -11,10 +11,10 @@ public class LeaderBoard extends javax.swing.JFrame {
         initComponents();
         setSize(700, 700);
         setLocationRelativeTo(null);
-        HighScores.setText(" " + easyMode.highestScore);
+        highScores.setText(" " + easyMode.highestScore);
         currentPlayer.setText(playerName.text);
-        currentScore.setText("" + easyMode.score);
-        currentScore.setText("" + hardMode.score);
+        currentScore.setText("" + easyMode.currentScore);
+        currentScore.setText("" + hardMode.currentScore);
     }
 
     @SuppressWarnings("unchecked")
@@ -24,7 +24,7 @@ public class LeaderBoard extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         BackMenu = new javax.swing.JButton();
         currentScore = new javax.swing.JLabel();
-        HighScores = new javax.swing.JLabel();
+        highScores = new javax.swing.JLabel();
         currentPlayer = new javax.swing.JLabel();
         FinalScaore = new javax.swing.JLabel();
 
@@ -46,17 +46,17 @@ public class LeaderBoard extends javax.swing.JFrame {
 
         currentScore.setFont(new java.awt.Font("Forte", 0, 24)); // NOI18N
         currentScore.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Current Score", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 18))); // NOI18N
-        jPanel1.add(currentScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 430, 300, 40));
+        jPanel1.add(currentScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 420, 160, 70));
 
-        HighScores.setBackground(new java.awt.Color(0, 0, 0));
-        HighScores.setFont(new java.awt.Font("Forte", 0, 24)); // NOI18N
-        HighScores.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "High Score", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 18))); // NOI18N
-        jPanel1.add(HighScores, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 290, 60));
+        highScores.setBackground(new java.awt.Color(0, 0, 0));
+        highScores.setFont(new java.awt.Font("Forte", 0, 24)); // NOI18N
+        highScores.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "High Score", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 18))); // NOI18N
+        jPanel1.add(highScores, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 160, 70));
 
         currentPlayer.setBackground(new java.awt.Color(102, 255, 204));
         currentPlayer.setFont(new java.awt.Font("Forte", 0, 24)); // NOI18N
         currentPlayer.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Current Player", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Forte", 0, 18))); // NOI18N
-        jPanel1.add(currentPlayer, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 290, 50));
+        jPanel1.add(currentPlayer, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 290, 70));
 
         FinalScaore.setIcon(new javax.swing.ImageIcon(getClass().getResource("/others/Score.jpg"))); // NOI18N
         jPanel1.add(FinalScaore, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 700));
@@ -90,9 +90,9 @@ public class LeaderBoard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackMenu;
     private javax.swing.JLabel FinalScaore;
-    private javax.swing.JLabel HighScores;
     private javax.swing.JLabel currentPlayer;
     private javax.swing.JLabel currentScore;
+    private javax.swing.JLabel highScores;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

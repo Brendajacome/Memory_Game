@@ -26,7 +26,7 @@ public class ComparationCardsHard {
             hardMode.hits++;
             hardMode.numHits.setText("" + hardMode.hits);
             hardMode.score = hardMode.score + 100;
-            hardMode.Score.setText("" + hardMode.score);
+            hardMode.scoreGame.setText("" + hardMode.score);
             hardMode.cardsFound++;
             gameWinHard.GameWin();
         } else {
@@ -36,7 +36,7 @@ public class ComparationCardsHard {
             if (hardMode.score >= 50) {
                 hardMode.score = hardMode.score - 50;
             }
-            hardMode.Score.setText("" + hardMode.score);
+            hardMode.scoreGame.setText("" + hardMode.score);
         }
         hardMode.clickCounter = 0;
     }

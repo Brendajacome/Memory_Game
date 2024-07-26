@@ -33,13 +33,12 @@ public class InterfaceMain extends javax.swing.JFrame {
         hardButton = new javax.swing.JButton();
         textInterface = new javax.swing.JLabel();
         easyButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        nickName = new javax.swing.JLabel();
         playerName = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 700));
-        setPreferredSize(new java.awt.Dimension(720, 730));
         getContentPane().setLayout(null);
 
         jPanel1.setMaximumSize(new java.awt.Dimension(700, 700));
@@ -87,10 +86,10 @@ public class InterfaceMain extends javax.swing.JFrame {
         });
         jPanel1.add(easyButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 430, 120, 50));
 
-        jLabel1.setFont(new java.awt.Font("Forte", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Enter your Nickname");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, -1, -1));
+        nickName.setFont(new java.awt.Font("Forte", 0, 24)); // NOI18N
+        nickName.setForeground(new java.awt.Color(255, 255, 255));
+        nickName.setText("Enter your Nickname");
+        jPanel1.add(nickName, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, -1, -1));
 
         playerName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,9 +184,9 @@ public class InterfaceMain extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton easyButton;
     private javax.swing.JButton hardButton;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel nickName;
     private javax.swing.JTextField playerName;
     private javax.swing.JButton submitButton;
     private javax.swing.JLabel textInterface;

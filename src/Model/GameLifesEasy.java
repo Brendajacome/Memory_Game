@@ -31,7 +31,6 @@ public class GameLifesEasy {
         if (easyMode.failures == 2) {
             easyMode.live2.setVisible(false);
             JOptionPane.showMessageDialog(null, "You have 1 lives remaining.");
-            JOptionPane.showMessageDialog(null, "You have 1 life remaining.");
         }
         if (easyMode.failures == 3) {
             easyMode.live3.setVisible(false);

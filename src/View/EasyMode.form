@@ -54,7 +54,7 @@
         <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="recordscore">
+        <Component class="javax.swing.JLabel" name="scoreCurrent">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="0"/>
@@ -77,7 +77,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="450" y="210" width="150" height="60"/>
+              <AbsoluteConstraints x="450" y="190" width="150" height="60"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -476,7 +476,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="Score">
+        <Component class="javax.swing.JLabel" name="scoreRecord">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="0"/>
@@ -498,7 +498,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="450" y="110" width="150" height="70"/>
+              <AbsoluteConstraints x="450" y="80" width="150" height="70"/>
             </Constraint>
           </Constraints>
         </Component>
