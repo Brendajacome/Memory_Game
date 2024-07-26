@@ -18,6 +18,30 @@ To do this we will use the application "Apache NetBeans IDE" version 22, with th
 java language, version 17.0.1.
 
 and open in the libraries the file "mysql-connector-j-9.0.0.jar" to conect to the data base. 
+---
+Requeriments
+---
+Functionals
+
+* LetteQuick response reaction when interacting with the cards.
+The graphical interface should be simple and easy to understand.
+The code should follow best practices such as Clean Code.
+The program should be maintainable over time.
+The system should be modifiable for possible future enhancements.r comparison management
+* Life control
+* Graphical interface
+* Database integration
+* User interaction
+* The program must be able to open in an Apache NetBeans java environment.
+* Must use Apache Ant for the construction of the project
+
+Non functionals
+
+* Quick response reaction when interacting with the cards.
+* The graphical interface should be simple and easy to understand.
+* The code should follow best practices such as Clean Code.
+* The program should be maintainable over time.
+* The system should be modifiable for possible future enhancements.
 
 ---
 Features
